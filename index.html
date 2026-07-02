@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#08080a;color:#f3f3f5;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#9b7bff;color:#08080a}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  @keyframes floatGlow{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-12px,14px) scale(1.05)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr !important;gap:40px !important}
+    .hero-col{align-items:center !important;text-align:center !important;order:2}
+    .hero-media{justify-self:center !important;order:1}
+    .about{grid-template-columns:1fr !important;gap:28px !important}
+  }
+  @media (max-width:560px){
+    .nav-links{gap:18px !important}
+    .brand-text{display:none}
+    .stat-row{justify-content:center}
+  }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;overflow:hidden">
+
+  <!-- HERO BACKGROUND (full-bleed, fades at bottom) -->
+  <div style="position:absolute;top:0;left:0;right:0;height:900px;background-image:url('assets/hero-bg.jpg');background-size:cover;background-position:center top;opacity:0.35;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)"></div>
+
+  <!-- ambient violet glows -->
+  <div style="position:fixed;top:-180px;right:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(155,123,255,0.22),transparent 62%);filter:blur(20px);pointer-events:none;animation:floatGlow 14s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;bottom:-220px;left:-160px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,rgba(80,200,160,0.12),transparent 64%);filter:blur(20px);pointer-events:none;z-index:0"></div>
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px clamp(20px,5vw,48px);backdrop-filter:blur(14px);background:rgba(8,8,10,0.55);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#f3f3f5">
+      <span style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#9b7bff,#6f4fe0);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:15px;color:#fff">U</span>
+      <span class="brand-text" style="font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:-0.01em">Ulisses Laffranchi</span>
+    </a>
+    <div class="nav-links" style="display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:flex-end">
+      <a href="#cases" style="text-decoration:none;color:#b6b6bf;font-size:14px;font-weight:500">Cases</a>
+      <a href="#sobre" style="text-decoration:none;color:#b6b6bf;font-size:14px;font-weight:500">Sobre</a>
+      <a href="#contato" style="text-decoration:none;color:#08080a;font-size:14px;font-weight:600;background:#f3f3f5;padding:9px 18px;border-radius:999px">Contato</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="hero" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,88px) clamp(20px,5vw,48px) 72px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(40px,5vw,56px);align-items:center">
+    <div class="hero-col" style="{{ heroColStyle }}">
+      
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(34px,6.5vw,60px);line-height:1.05;letter-spacing:-0.03em;margin:0 0 24px">
+        Olá! eu sou <span style="background:linear-gradient(120deg,#c8b8ff,#9b7bff 55%,#7a5cf0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Ulisses Laffranchi</span> e sou Product Designer.
+      </h1>
+      <p style="font-size:18px;line-height:1.6;color:#a7a7b2;max-width:520px;margin:0 0 36px">
+        Desenho produtos digitais a partir de pesquisa, estratégia e atenção ao comportamento real das pessoas — transformando problemas complexos em experiências simples e úteis.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#cases" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#9b7bff,#6f4fe0);color:#fff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:12px;box-shadow:0 12px 30px -8px rgba(155,123,255,0.5)">
+          Ver meus cases →
+        </a>
+        <a href="#contato" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;color:#f3f3f5;font-weight:600;font-size:15px;padding:14px 26px;border-radius:12px;border:1px solid rgba(255,255,255,0.14)">
+          Falar comigo
+        </a>
+      </div>
+      <div class="stat-row" style="display:flex;gap:clamp(24px,5vw,40px);margin-top:52px;flex-wrap:wrap">
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:30px;color:#f3f3f5">UX</div><div style="font-size:13px;color:#8b8b95;margin-top:2px">Research &amp; Strategy</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:30px;color:#f3f3f5">UI</div><div style="font-size:13px;color:#8b8b95;margin-top:2px">Interface &amp; Prototype</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:30px;color:#f3f3f5">∞</div><div style="font-size:13px;color:#8b8b95;margin-top:2px">Curiosidade</div></div>
+      </div>
+    </div>
+
+    <div class="hero-media" style="position:relative;justify-self:start;width:min(340px,80vw);animation:fadeUp 1s ease both">
+      <div style="position:absolute;inset:-26px;border-radius:28px;background:radial-gradient(circle at 50% 30%,rgba(155,123,255,0.4),transparent 70%);filter:blur(26px)"></div>
+      <div style="position:relative;width:100%;aspect-ratio:340/430;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);box-shadow:0 30px 70px -20px rgba(0,0,0,0.7)">
+        
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(transparent,rgba(8,8,10,0.85));display:flex;flex-direction:column;gap:2px">
+          
+          
+        </div>
+      <img src="assets/ulisses.jpg" alt="Ulisses Laffranchi" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;position:absolute;inset:0"></div>
+    </div>
+  </header>
+
+  <!-- CASES -->
+  <section id="cases" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:64px clamp(20px,5vw,48px) 40px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px">
+      <div>
+        <span style="font-size: 25px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #9b7bff">CASES</span>
+        
+      </div>
+      <div style="display:flex;gap:10px">
+        <button onClick="{{ prev }}" aria-label="Anterior" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.03);color:#f3f3f5;font-size:18px;cursor:pointer;transition:all .2s" style-hover="background:rgba(155,123,255,0.18);border-color:#9b7bff">←</button>
+        <button onClick="{{ next }}" aria-label="Próximo" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.03);color:#f3f3f5;font-size:18px;cursor:pointer;transition:all .2s" style-hover="background:rgba(155,123,255,0.18);border-color:#9b7bff">→</button>
+      </div>
+    </div>
+
+    <div ref="{{ trackRef }}" class="no-scrollbar" style="display:flex;justify-content:center;gap:24px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:6px 0 18px;margin:0 -48px;padding-left:48px;padding-right:48px">
+
+      <!-- MAIN CASE -->
+      <a href="Case-FoodFlow.dc.html" style="scroll-snap-align:start;flex:none;width:min(560px,88vw);text-decoration:none;color:inherit">
+        <article style="height:100%;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:#121214;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(155,123,255,0.45)">
+          <div style="position:relative;height:300px;background:linear-gradient(140deg,#2a2150,#16142a 70%);display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(155,123,255,0.35),transparent 60%)"></div>
+            <div style="display:flex;gap:13px;z-index:1;align-items:flex-end;transform:translateY(34px)">
+              <div style="width:128px;border-radius:18px 18px 0 0;overflow:hidden;border:3px solid #1a1a22;border-bottom:none;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)"><img src="assets/tela-02-home-doador.png" alt="Home do doador" style="display:block;width:100%;height:auto"></div>
+              <div style="width:128px;border-radius:18px 18px 0 0;overflow:hidden;border:3px solid #1a1a22;border-bottom:none;box-shadow:0 18px 40px -14px rgba(0,0,0,.6);margin-bottom:26px"><img src="assets/tela-04-alertas.png" alt="Alertas de validade" style="display:block;width:100%;height:auto"></div>
+              <div style="width:128px;border-radius:18px 18px 0 0;overflow:hidden;border:3px solid #1a1a22;border-bottom:none;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)"><img src="assets/tela-08-onde-doar.png" alt="Onde doar" style="display:block;width:100%;height:auto"></div>
+              <div style="width:128px;border-radius:18px 18px 0 0;overflow:hidden;border:3px solid #1a1a22;border-bottom:none;box-shadow:0 18px 40px -14px rgba(0,0,0,.6);margin-bottom:26px"><img src="assets/tela-11-home-receptor.png" alt="Home do receptor" style="display:block;width:100%;height:auto"></div>
+            </div>
+          </div>
+          <div style="padding:26px 28px 30px">
+            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+              <span style="font-size:12px;font-weight:600;color:#c8b8ff;background:rgba(155,123,255,0.14);padding:5px 11px;border-radius:999px">UX Research</span>
+              <span style="font-size:12px;font-weight:600;color:#c8b8ff;background:rgba(155,123,255,0.14);padding:5px 11px;border-radius:999px">UX Strategy</span>
+              <span style="font-size:12px;font-weight:600;color:#c8b8ff;background:rgba(155,123,255,0.14);padding:5px 11px;border-radius:999px">Prototipagem</span>
+              <span style="font-size:12px;font-weight:600;color:#c8b8ff;background:rgba(155,123,255,0.14);padding:5px 11px;border-radius:999px">App Mobile</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:25px;letter-spacing:-0.02em;margin:0 0 10px">FoodFlow — combate ao desperdício e doação de alimentos</h3>
+            <p style="font-size:15px;line-height:1.55;color:#9a9aa3;margin:0 0 18px">Um app que ajuda a organizar o que se tem em casa, antecipar o desperdício e transformar a doação em um passo natural da rotina.</p>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#9b7bff">Ver case completo →</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- RESERVADO PARA O FUTURO -->
+      <div style="scroll-snap-align:start;flex:none;width:420px;border-radius:20px;border:1px dashed rgba(255,255,255,0.14);background:#0e0e11;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 40px;display:none">
+        <div style="width:54px;height:54px;border-radius:16px;border:1px solid rgba(155,123,255,0.3);background:rgba(155,123,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:22px">
+          <span style="font-size:24px;color:#c8b8ff">✳</span>
+        </div>
+        <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:23px;letter-spacing:-0.01em;margin:0 0 12px;color:#e9e9ee">Reservado para o futuro</h3>
+        <p style="font-size:15px;line-height:1.6;color:#8b8b95;margin:0;max-width:300px">Espaço pensado para crescer o portfólio com novos cases de pesquisa, produto e design.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="about" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:72px clamp(20px,5vw,48px);display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center">
+    <div>
+      <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9b7bff">Sobre mim</span>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4vw,34px);letter-spacing:-0.02em;margin:12px 0 0;line-height:1.15">Design que começa pela pergunta certa.</h2>
+    </div>
+    <div>
+      <p style="font-size:20px;line-height:1.7;color:#a7a7b2;margin:0 0 22px">Sou Product Designer e gosto de entender o comportamento real antes de desenhar a primeira tela. Acredito que boas decisões de produto nascem da pesquisa, da clareza do problema e da empatia com quem vai usar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="font-size:13.5px;font-weight:500;color:#cfcfd6;border:1px solid rgba(255,255,255,0.12);padding:8px 15px;border-radius:999px">UX Research</span>
+        <span style="font-size:13.5px;font-weight:500;color:#cfcfd6;border:1px solid rgba(255,255,255,0.12);padding:8px 15px;border-radius:999px">Design Estratégico</span>
+        <span style="font-size:13.5px;font-weight:500;color:#cfcfd6;border:1px solid rgba(255,255,255,0.12);padding:8px 15px;border-radius:999px">UI Design</span>
+        <span style="font-size:13.5px;font-weight:500;color:#cfcfd6;border:1px solid rgba(255,255,255,0.12);padding:8px 15px;border-radius:999px">Prototipagem</span>
+        <span style="font-size:13.5px;font-weight:500;color:#cfcfd6;border:1px solid rgba(255,255,255,0.12);padding:8px 15px;border-radius:999px">Design System</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:40px clamp(20px,5vw,48px) 96px">
+    <div style="border-radius:24px;border:1px solid rgba(155,123,255,0.25);background:linear-gradient(140deg,rgba(155,123,255,0.12),rgba(8,8,10,0.2));padding:clamp(40px,6vw,56px) clamp(24px,5vw,48px);text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:300px;background:radial-gradient(circle,rgba(155,123,255,0.3),transparent 65%);filter:blur(20px)"></div>
+      <h2 style="position:relative;font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4.5vw,36px);letter-spacing:-0.02em;margin:0 0 14px">Vamos construir algo juntos?</h2>
+      <p style="position:relative;font-size:17px;color:#b6b6bf;max-width:480px;margin:0 auto 30px">Estou aberto a oportunidades e parcerias em design de produto.</p>
+      <div style="position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button onClick="{{ openModal }}" style="border:0;cursor:pointer;background:#f3f3f5;color:#08080a;font-weight:600;font-size:15px;padding:14px 28px;border-radius:12px">Enviar e-mail</button>
+        <a href="https://www.linkedin.com/in/ulisses-laffranchi" target="_blank" rel="noopener" style="text-decoration:none;color:#f3f3f5;font-weight:600;font-size:15px;padding:14px 28px;border-radius:12px;border:1px solid rgba(255,255,255,0.18)">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.07);color:#6b6b74;font-size:13.5px">
+      <span>© 2026 Ulisses Laffranchi</span>
+      <span>Product Designer · UX/UI</span>
+    </div>
+  </section>
+
+  <!-- EMAIL MODAL -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ onBackdrop }}" style="position:fixed;inset:0;z-index:100;background:rgba(4,4,6,0.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeUp 0.25s ease both">
+    <div onClick="{{ stop }}" style="width:100%;max-width:520px;background:#121214;border:1px solid rgba(255,255,255,0.1);border-radius:22px;box-shadow:0 40px 100px -30px rgba(0,0,0,0.8);padding:clamp(26px,5vw,38px);position:relative;overflow:hidden">
+      <div style="position:absolute;top:-120px;right:-60px;width:320px;height:240px;background:radial-gradient(circle,rgba(155,123,255,0.28),transparent 65%);filter:blur(24px);pointer-events:none"></div>
+      <button onClick="{{ closeModal }}" aria-label="Fechar" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.03);color:#cfcfd6;font-size:16px;cursor:pointer;line-height:1;z-index:1">✕</button>
+
+      <div style="position:relative;margin-bottom:22px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9b7bff">Contato</span>
+        <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:24px;letter-spacing:-0.02em;margin:8px 0 0">Enviar um e-mail</h3>
+      </div>
+
+      <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:600;color:#cfcfd6">Seu e-mail</span>
+          <input type="email" value="{{ fEmail }}" onInput="{{ setEmail }}" placeholder="voce@email.com" style="width:100%;background:#0c0c0e;border:1px solid rgba(255,255,255,0.12);border-radius:11px;padding:13px 15px;color:#f3f3f5;font-size:15px;font-family:inherit;outline:none" style-focus="border-color:#9b7bff">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:600;color:#cfcfd6">Assunto</span>
+          <input type="text" value="{{ fAssunto }}" onInput="{{ setAssunto }}" placeholder="Sobre o que você quer falar?" style="width:100%;background:#0c0c0e;border:1px solid rgba(255,255,255,0.12);border-radius:11px;padding:13px 15px;color:#f3f3f5;font-size:15px;font-family:inherit;outline:none" style-focus="border-color:#9b7bff">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:13px;font-weight:600;color:#cfcfd6">Mensagem</span>
+          <textarea value="{{ fMensagem }}" onInput="{{ setMensagem }}" rows="5" placeholder="Escreva sua mensagem..." style="width:100%;background:#0c0c0e;border:1px solid rgba(255,255,255,0.12);border-radius:11px;padding:13px 15px;color:#f3f3f5;font-size:15px;font-family:inherit;outline:none;resize:vertical;min-height:120px" style-focus="border-color:#9b7bff"></textarea>
+        </label>
+      </div>
+
+      <div style="position:relative;display:flex;gap:12px;justify-content:flex-end;margin-top:26px;flex-wrap:wrap">
+        <button onClick="{{ closeModal }}" style="cursor:pointer;background:transparent;color:#cfcfd6;font-weight:600;font-size:15px;padding:13px 22px;border-radius:11px;border:1px solid rgba(255,255,255,0.16)">Cancelar</button>
+        <button onClick="{{ sendEmail }}" style="cursor:pointer;border:0;background:linear-gradient(135deg,#9b7bff,#6f4fe0);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;box-shadow:0 12px 30px -8px rgba(155,123,255,0.5)">Enviar</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900},&quot;heroAlign&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left'|'right'&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  trackRef = React.createRef();
+  state = { modalOpen: false, fEmail: '', fAssunto: '', fMensagem: '' };
+
+  openModal = () => this.setState({ modalOpen: true });
+  closeModal = () => this.setState({ modalOpen: false });
+  onBackdrop = () => this.closeModal();
+  stop = (e) => e.stopPropagation();
+
+  sendEmail = () => {
+    const { fEmail, fAssunto, fMensagem } = this.state;
+    const subject = encodeURIComponent(fAssunto || 'Contato pelo portfólio');
+    const body = encodeURIComponent(
+      (fMensagem || '') + (fEmail ? '\n\n— ' + fEmail : '')
+    );
+    window.location.href = `mailto:ulaffranchi@gmail.com?subject=${subject}&body=${body}`;
+    this.closeModal();
+  };
+
+  scrollBy(dir){
+    const el = this.trackRef.current;
+    if(!el) return;
+    el.scrollBy({left: dir * (el.clientWidth * 0.8), behavior:'smooth'});
+  }
+  renderVals(){
+    const right = (this.props.heroAlign ?? 'right') === 'right';
+    const heroColStyle = {
+      animation: 'fadeUp 0.8s ease both',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: right ? 'flex-end' : 'flex-start',
+      textAlign: right ? 'right' : 'left',
+    };
+    return {
+      heroColStyle,
+      trackRef: this.trackRef,
+      next: () => this.scrollBy(1),
+      prev: () => this.scrollBy(-1),
+      modalOpen: this.state.modalOpen,
+      fEmail: this.state.fEmail,
+      fAssunto: this.state.fAssunto,
+      fMensagem: this.state.fMensagem,
+      openModal: this.openModal,
+      closeModal: this.closeModal,
+      onBackdrop: this.onBackdrop,
+      stop: this.stop,
+      sendEmail: this.sendEmail,
+      setEmail: (e) => this.setState({ fEmail: e.target.value }),
+      setAssunto: (e) => this.setState({ fAssunto: e.target.value }),
+      setMensagem: (e) => this.setState({ fMensagem: e.target.value }),
+    };
+  }
+}
+</script>
+</body>
+</html>

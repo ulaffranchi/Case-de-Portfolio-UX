@@ -14,6 +14,7 @@
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
   body{margin:0;background:#08080a;color:#f3f3f5;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
   ::selection{background:#9b7bff;color:#08080a}
   .no-scrollbar::-webkit-scrollbar{display:none}
@@ -29,6 +30,8 @@
     .nav-links{gap:18px !important}
     .brand-text{display:none}
     .stat-row{justify-content:center}
+    .cases-head{flex-direction:column;align-items:flex-start !important;gap:16px}
+    .cases-track{justify-content:flex-start !important}
   }
 </style>
 </helmet>
@@ -94,7 +97,7 @@
 
   <!-- CASES -->
   <section id="cases" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:64px clamp(20px,5vw,48px) 40px">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px">
+    <div class="cases-head" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px;gap:16px;flex-wrap:wrap">
       <div>
         <span style="font-size: 25px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #9b7bff">CASES</span>
         
@@ -105,7 +108,7 @@
       </div>
     </div>
 
-    <div ref="{{ trackRef }}" class="no-scrollbar" style="display:flex;justify-content:center;gap:24px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:6px 0 18px;margin:0 -48px;padding-left:48px;padding-right:48px">
+    <div ref="{{ trackRef }}" class="no-scrollbar cases-track" style="display:flex;justify-content:center;gap:24px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:6px clamp(20px,5vw,48px) 18px;margin-left:calc(-1 * clamp(20px,5vw,48px));margin-right:calc(-1 * clamp(20px,5vw,48px))">
 
       <!-- MAIN CASE -->
       <a href="Case-FoodFlow.dc.html" style="scroll-snap-align:start;flex:none;width:min(560px,88vw);text-decoration:none;color:inherit">

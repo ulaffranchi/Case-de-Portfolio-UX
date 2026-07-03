@@ -14,18 +14,37 @@
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
   body{margin:0;background:#f1edfb;color:#1e2438;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
   ::selection{background:#7c3aed;color:#fff}
   .no-scrollbar::-webkit-scrollbar{display:none}
   .ph{position:relative;background:repeating-linear-gradient(135deg,#efeafc,#efeafc 11px,#e7e0f8 11px,#e7e0f8 22px);border:1px dashed rgba(30,36,56,0.12);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#8a7fb0;font-family:'JetBrains Mono',monospace;font-size:12.5px;text-align:center;padding:18px;line-height:1.5}
   .wf{background:#e4ddf6;border-radius:5px}
   @keyframes ffspin{to{transform:rotate(360deg)}}
+  .case-root{display:flex;flex-direction:column}
+  .case-root nav{order:-2}
+  .case-root .cover-wrap{order:-1;max-width:none !important;padding:0 !important;margin:-58px 0 12px !important}
+  .case-root .cover-card{border-radius:0 !important;box-shadow:none !important;height:400px !important}
+  @media (max-width:760px){
+    .case-root nav{padding-left:20px !important;padding-right:20px !important}
+    .case-root nav span{display:none}
+    .case-root section, .case-root header, .case-root > div{padding-left:20px !important;padding-right:20px !important}
+    .case-root [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+    .case-root [style*="width:"]{max-width:100% !important}
+    .case-root h1{font-size:34px !important}
+    .case-root .cover-wrap{padding:0 !important;margin:0 0 6px !important}
+    .case-root .cover-card{border-radius:0 !important;box-shadow:none !important;height:300px !important}
+    .case-root .cover-img{height:100% !important;object-fit:cover;object-position:center}
+    .case-root table{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
+    .case-root .flow-steps{display:none !important}
+    .case-root .flow-steps-list{display:block !important}
+  }
   @keyframes ffpulse{0%,100%{opacity:0.35}50%{opacity:1}}
   @keyframes ovenGlow{0%,100%{opacity:0.55}50%{opacity:1}}
 </style>
 </helmet>
 
-<div style="position:relative;overflow:hidden">
+<div class="case-root" style="position:relative;overflow:hidden">
 
   <!-- NAV -->
   <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;backdrop-filter:blur(14px);background:rgba(241,237,251,0.72);border-bottom:1px solid rgba(30,36,56,0.07)">
@@ -35,14 +54,13 @@
 
   <!-- HERO / CONTEXTO INICIAL -->
   <header style="position:relative;max-width:1100px;margin:0 auto;padding:80px 48px 40px">
-    <div style="position:absolute;top:0;right:0;width:480px;height:420px;background:radial-gradient(circle,rgba(124,58,237,0.2),transparent 65%);filter:blur(24px);pointer-events:none"></div>
     <div style="position:relative">
       <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
         <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">UX Research</span>
         <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">Design Estratégico</span>
         <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">UI · Protótipo</span>
       </div>
-      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:54px;line-height:1.05;letter-spacing:-0.03em;margin:0 0 22px;max-width:880px">FoodFlow: tornar visível o que está sobrando — e fácil de doar.</h1>
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:54px;line-height:1.05;letter-spacing:-0.03em;margin:0 0 22px;max-width:880px">FoodFlow: tornar visível o que está sobrando e fácil de doar.</h1>
       <p style="font-size:19px;line-height:1.6;color:#646c80;max-width:720px;margin:0 0 30px">Como utilizei o UX para ajudar as pessoas a organizar o que têm em casa, antecipar o desperdício de alimentos e transformar a doação em um passo natural da rotina.</p>
 
       <!-- Pergunta norteadora / desafio inicial -->
@@ -60,15 +78,10 @@
   </header>
 
   <!-- COVER MOCKUP — telas reais -->
-  <div style="max-width:1100px;margin:0 auto;padding:0 48px 24px">
-    <div style="position:relative;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#8b5cf6 0%,#a855f7 45%,#c026d3 100%);box-shadow:0 40px 90px -36px rgba(124,58,237,0.55)">
-      <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 0%,rgba(255,255,255,0.22),transparent 60%)"></div>
-      <div style="position:relative;display:flex;justify-content:center;align-items:flex-end;gap:26px;padding:54px 40px 0;height:340px">
-        <div style="flex:none;width:158px;border-radius:26px;overflow:hidden;border:5px solid #fff;box-shadow:0 24px 48px -16px rgba(40,10,80,0.5);transform:translateY(34px) rotate(-5deg)"><img src="assets/tela-02-home-doador.png" alt="Home do doador" style="display:block;width:100%;height:auto"></div>
-        <div style="flex:none;width:172px;border-radius:28px;overflow:hidden;border:5px solid #fff;box-shadow:0 28px 56px -16px rgba(40,10,80,0.55);transform:translateY(4px);z-index:2"><img src="assets/tela-04-alertas.png" alt="Alertas de validade" style="display:block;width:100%;height:auto"></div>
-        <div style="flex:none;width:172px;border-radius:28px;overflow:hidden;border:5px solid #fff;box-shadow:0 28px 56px -16px rgba(40,10,80,0.55);transform:translateY(4px);z-index:2"><img src="assets/tela-08-onde-doar.png" alt="Escolha onde doar" style="display:block;width:100%;height:auto"></div>
-        <div style="flex:none;width:158px;border-radius:26px;overflow:hidden;border:5px solid #fff;box-shadow:0 24px 48px -16px rgba(40,10,80,0.5);transform:translateY(34px) rotate(5deg)"><img src="assets/tela-11-home-receptor.png" alt="Home do receptor" style="display:block;width:100%;height:auto"></div>
-      </div>
+  <div class="cover-wrap" style="max-width:1100px;margin:0 auto;padding:0 48px 24px">
+    <div class="cover-card" style="position:relative;border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -36px rgba(124,58,237,0.55);height:300px">
+      <img class="cover-img" src="assets/cover-banner.png" alt="Telas do app FoodFlow" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center">
+      <div class="cover-fade" style="position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(to bottom,transparent,#f1edfb);pointer-events:none;z-index:5"></div>
     </div>
   </div>
 
@@ -88,7 +101,7 @@
       <p style="font-size: 18.5px; line-height: 1.6; color: #1e2438; margin: 0; font-style: normal">Na correria do dia a dia e da gestão do lar, as pessoas esquecem do casaco no armário ou da validade da fruta na fruteira. Essa <strong style="color: #BE2BD7">invisibilidade do que está em desuso</strong> leva ao desperdício e impede que esses itens cheguem até quem precisa. Resolver isso é crucial para reduzir desperdício, combater a fome e criar uma circulação eficiente e digna de bens entre quem tem e quem precisa.&nbsp;A ONG luta contra a fome ajudando pessoas carentes, contando com a boa vontade de quem tem mais condições. Ela é o middleman dessa negociação e quer uma solução que torne a transição de bens entre os dois públicos mais eficiente e escalável. É desta premissa que nasce o FoodFLow . Boa leitura!</p><p></p><p></p>
     </div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px">
       
-      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px; width: 1002px; height: 118px">
+      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px; width: 993px; height: 122px">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:12px">Foco do case</div>
         <p style="font-size:18px;line-height:1.5;color:#1e2438;margin:0;font-weight:600">A dificuldade de quem tem a doar chegar até quem precisa receber.</p>
       </div>
@@ -205,11 +218,106 @@
     </div>
   </section>
 
-  <!-- 2.2 Jornada do usuário atual — PENDENTE -->
+  <!-- 2.2 Jornada do usuário atual -->
   <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0;color:#1e2438">Jornada do usuário atual</h3><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;background:rgba(244,63,94,0.14);border:1px solid rgba(244,63,94,0.3);padding:4px 10px;border-radius:999px">Pendente</span></div>
-    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">Mapa de como o usuário lida com o problema hoje, sem o produto — etapas, ações, emoções e pontos de dor que justificam a oportunidade de design.</p>
-    <div class="ph" style="min-height:200px;flex-direction:column;gap:8px"><div style="font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#8a93a6">Seção a produzir</div><div>[ Jornada atual — etapas · ações · sentimentos · pontos de dor · oportunidades · a inserir ]</div></div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0;color:#1e2438">Jornada do usuário atual</h3></div>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">A jornada de doação de alimentos sem o FoodFlow é longa, dependente de esforço próprio e todos as etapas tem pontos de atrito onde a maioria das pessoas desiste e acaba jogando a comida fora. Abaixo o passo a passo do ponto de vista da Mariana, alguém que tem itens em casa e quer doar.</p>
+    <!-- Curva emocional -->
+    <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:22px 26px 14px;margin-bottom:18px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px">
+        <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2">Curva emocional ao longo da jornada</span>
+        <span style="font-size:12.5px;color:#8a93a6">Boa intenção <span style="color:#c9c2de">———›</span> desistência &amp; desperdício</span>
+      </div>
+      <svg viewBox="0 0 1100 210" preserveAspectRatio="none" style="display:block;width:100%;height:120px" aria-label="Curva emocional decrescente">
+        <defs>
+          <linearGradient id="emoLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#10b981"></stop>
+            <stop offset="45%" stop-color="#f59e0b"></stop>
+            <stop offset="100%" stop-color="#f43f5e"></stop>
+          </linearGradient>
+          <linearGradient id="emoFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(124,58,237,0.12)"></stop>
+            <stop offset="100%" stop-color="rgba(124,58,237,0)"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M91 55 C150 60,215 68,274 74 C335 82,400 112,457 122 C515 132,580 150,640 158 C700 165,765 186,823 190 C880 192,950 186,1006 182 L1006 210 L91 210 Z" fill="url(#emoFill)"></path>
+        <path d="M91 55 C150 60,215 68,274 74 C335 82,400 112,457 122 C515 132,580 150,640 158 C700 165,765 186,823 190 C880 192,950 186,1006 182" fill="none" stroke="url(#emoLine)" stroke-width="3.5" stroke-linecap="round"></path>
+        <circle cx="91" cy="55" r="6" fill="#10b981"></circle>
+        <circle cx="274" cy="74" r="6" fill="#10b981"></circle>
+        <circle cx="457" cy="122" r="6" fill="#f59e0b"></circle>
+        <circle cx="640" cy="158" r="6" fill="#f59e0b"></circle>
+        <circle cx="823" cy="190" r="6" fill="#f43f5e"></circle>
+        <circle cx="1006" cy="182" r="6" fill="#f43f5e"></circle>
+      </svg>
+    </div>
+
+    <!-- Etapas -->
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">
+      <!-- 1 -->
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#10b981"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">01</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Percebe que tem itens sobrando</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Nota, por acaso, itens parados na despensa ou perto de vencer.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Boa vontade — “podia doar isso”. 🙂</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">A percepção é aleatória, sem organização.</p></div>
+      </div>
+      <!-- 2 -->
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#10b981"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">02</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Decide que quer doar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Forma a intenção de não deixar estragar e repassar o item.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Motivada, com propósito. 😊</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">A intenção depende de lembrar na hora certa.</p></div>
+      </div>
+      <!-- 3 -->
+      <div style="background:#ffffff;border:1px solid rgba(245,158,11,0.28);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f59e0b"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">03</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Procura para onde doar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Pesquisa ONGs, pergunta a conhecidos, busca no Google.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Dúvida e insegurança sobre o destino. 😕</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Informação dispersa; não sabe quem aceita o quê.</p></div>
+      </div>
+      <!-- 4 -->
+      <div style="background:#ffffff;border:1px solid rgba(245,158,11,0.28);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f59e0b"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">04</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Tenta contato e combina</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Liga, manda mensagem, tenta alinhar horário e local.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Impaciência — processo trabalhoso. 😟</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Retorno lento e regras pouco claras.</p></div>
+      </div>
+      <!-- 5 -->
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.3);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f43f5e"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">05</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Precisa se deslocar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Teria que separar, embalar e levar até o ponto de coleta.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Cansaço — “não tenho tempo pra isso”. 😣</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Esforço alto derruba a boa intenção.</p></div>
+      </div>
+      <!-- 6 -->
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.3);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f43f5e"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">06</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Desiste e descarta</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Sem energia para o processo, joga o alimento fora.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Culpa e frustração da intenção perdida. 😞</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Comida e dinheiro desperdiçados; a ONG não recebe.</p></div>
+      </div>
+    </div>
+
+    <!-- Oportunidades -->
+    <div style="margin-top:22px;background:linear-gradient(140deg,rgba(124,58,237,0.1),rgba(16,185,129,0.08));border:1px solid rgba(124,58,237,0.22);border-radius:18px;padding:28px 30px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px">Cada atrito virou uma oportunidade de design</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.14);padding:4px 9px;border-radius:999px">Etapas 1–2</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Tornar visível o que está sobrando, na hora certa.</p></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.14);padding:4px 9px;border-radius:999px">Etapas 3–4</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Encurtar a busca com destinos próximos e confiáveis.</p></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#0f9d6e;background:rgba(16,185,129,0.16);padding:4px 9px;border-radius:999px">Etapas 5–6</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Reduzir o esforço de doar a poucos toques no app.</p></div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ TEMA 03 · A VALIDAÇÃO ============ -->
@@ -256,10 +364,10 @@
   <!-- 3.3 Análise / insights -->
   <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
     <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Pesquisa com usuários</h3>
-    <p style="font-size: 16px; color: #646c80; max-width: 720px; margin: 0 0 28px; line-height: 1.6; width: 821px; height: 73px">Conduzi uma pesquisa estruturada quantitativa com 26 respondentes para traduzir em números hábitos de compra, controle de validade, gestão financeira e disposição para doar. O público: Pessoas que compram mantimentos para sua casa.</p>
+    <p style="font-size: 16px; color: #646c80; max-width: 720px; margin: 0 0 28px; line-height: 1.6">Conduzi uma pesquisa estruturada quantitativa com 26 respondentes para traduzir em números hábitos de compra, controle de validade, gestão financeira e disposição para doar. O público: Pessoas que compram mantimentos para sua casa.</p>
 
     <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;margin-bottom:32px">
-      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px 28px; width: 1005px; height: 175px">
+      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px 28px">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px">Pontos investigados</div>
         <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.75;column-count:2;column-gap:40px">
           <li>Perfil do público (idade, escolaridade, composição familiar)</li>
@@ -273,7 +381,7 @@
       
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 14px; width: 1005px; height: 161px">
+    <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 14px">
       <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
         <div style="background:linear-gradient(150deg,#f0e9fe,#ffffff);border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:28px 22px;text-align:center">
           <div style="font-family:'Space Grotesk';font-weight:700;font-size:52px;color:#7c3aed;line-height:1">{{ m.value }}</div><div style="font-size:13.5px;color:#646c80;margin-top:12px;line-height:1.45">{{ m.label }}</div>
@@ -342,7 +450,16 @@
     <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Priorização de funcionalidades</h3>
     <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">As ideias foram priorizadas por impacto x esforço e organizadas no fluxo que guia o usuário da descoberta à recompensa.</p>
 
-    <div style="display:flex;align-items:center;gap:7px;flex-wrap:nowrap;margin-bottom:34px">
+    <ul class="flow-steps-list" style="display:none;list-style:none;margin:0 0 34px;padding:0">
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">1</span>Descoberta</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">2</span>Entrada de itens</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">3</span>Monitoramento</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">4</span>Alerta</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">5</span>Decisão</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">6</span>Doação</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff">7</span>Recompensa</li>
+    </ul>
+    <div class="flow-steps" style="display:flex;align-items:center;gap:7px;flex-wrap:nowrap;margin-bottom:34px">
       <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Descoberta</span>
       <span style="color:#a99fce">→</span>
       <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Entrada de itens</span>

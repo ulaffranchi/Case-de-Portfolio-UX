@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{margin:0;background:#f1edfb;color:#1e2438;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#7c3aed;color:#fff}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  .ph{position:relative;background:repeating-linear-gradient(135deg,#efeafc,#efeafc 11px,#e7e0f8 11px,#e7e0f8 22px);border:1px dashed rgba(30,36,56,0.12);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#8a7fb0;font-family:'JetBrains Mono',monospace;font-size:12.5px;text-align:center;padding:18px;line-height:1.5}
+  .wf{background:#e4ddf6;border-radius:5px}
+  @keyframes ffspin{to{transform:rotate(360deg)}}
+  .case-root{display:flex;flex-direction:column}
+  .case-root nav{order:-2}
+  .case-root .cover-wrap{order:-1;max-width:none !important;padding:0 !important;margin:-58px 0 12px !important}
+  .case-root .cover-card{border-radius:0 !important;box-shadow:none !important;height:400px !important}
+  @media (max-width:760px){
+    .case-root nav{padding-left:20px !important;padding-right:20px !important}
+    .case-root nav span{display:none}
+    .case-root section, .case-root header, .case-root > div{padding-left:20px !important;padding-right:20px !important}
+    .case-root [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+    .case-root [style*="width:"]{max-width:100% !important}
+    .case-root h1{font-size:34px !important}
+    .case-root .cover-wrap{padding:0 !important;margin:0 0 6px !important}
+    .case-root .cover-card{border-radius:0 !important;box-shadow:none !important;height:300px !important}
+    .case-root .cover-img{height:100% !important;object-fit:cover;object-position:center}
+    .case-root table{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
+    .case-root .flow-steps{display:none !important}
+    .case-root .flow-steps-list{display:block !important}
+  }
+  @keyframes ffpulse{0%,100%{opacity:0.35}50%{opacity:1}}
+  @keyframes ovenGlow{0%,100%{opacity:0.55}50%{opacity:1}}
+</style>
+</helmet>
+
+<div class="case-root" style="position:relative;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;backdrop-filter:blur(14px);background:rgba(241,237,251,0.72);border-bottom:1px solid rgba(30,36,56,0.07)">
+    <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:#4a5266;font-size:14px;font-weight:600">← Voltar ao portfólio</a>
+    <span style="font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#8a93a6">FoodFlow · UX Case Study</span>
+  </nav>
+
+  <!-- HERO / CONTEXTO INICIAL -->
+  <header style="position:relative;max-width:1100px;margin:0 auto;padding:80px 48px 40px">
+    <div style="position:relative">
+      <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">UX Research</span>
+        <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">Design Estratégico</span>
+        <span style="font-size:12px;font-weight:600;color:#7c3aed;background:rgba(124,58,237,0.14);padding:6px 12px;border-radius:999px">UI · Protótipo</span>
+      </div>
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:54px;line-height:1.05;letter-spacing:-0.03em;margin:0 0 22px;max-width:880px">FoodFlow: tornar visível o que está sobrando e fácil de doar.</h1>
+      <p style="font-size:19px;line-height:1.6;color:#646c80;max-width:720px;margin:0 0 30px">Como utilizei o UX para ajudar as pessoas a organizar o que têm em casa, antecipar o desperdício de alimentos e transformar a doação em um passo natural da rotina.</p>
+
+      <!-- Pergunta norteadora / desafio inicial -->
+      <div style="border-left:3px solid #7c3aed;padding:4px 0 4px 22px;margin:0 0 44px;max-width:760px">
+        <div style="font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2;margin-bottom:10px">Pergunta norteadora</div>
+        <p style="font-size:18px;line-height:1.55;color:#3f475c;margin:0;font-weight:600">Como podemos tornar a transição de bens entre quem tem a doar e quem precisa receber mais eficiente e escalável para a ONG?</p>
+      </div>
+    </div>
+    <div style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,36,56,0.08);border:1px solid rgba(30,36,56,0.08);border-radius:16px;overflow:hidden">
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8a93a6;font-weight:600;margin-bottom:7px">Meu papel</div><div style="font-size:15px;font-weight:600;color:#1e2438">Product Designer<br>UX/UI ponta a ponta</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8a93a6;font-weight:600;margin-bottom:7px">Cliente</div><div style="font-size:15px;font-weight:600;color:#1e2438">ONG de combate<br>à fome</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8a93a6;font-weight:600;margin-bottom:7px">Plataforma</div><div style="font-size:15px;font-weight:600;color:#1e2438">App mobile<br>iOS / Android</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8a93a6;font-weight:600;margin-bottom:7px">Entregáveis</div><div style="font-size:15px;font-weight:600;color:#1e2438">Pesquisa, fluxos, testes e protótipo de alta fidelidade</div></div>
+    </div>
+  </header>
+
+  <!-- COVER MOCKUP — telas reais -->
+  <div class="cover-wrap" style="max-width:1100px;margin:0 auto;padding:0 48px 24px">
+    <div class="cover-card" style="position:relative;border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -36px rgba(124,58,237,0.55);height:300px">
+      <img class="cover-img" src="assets/cover-banner.png" alt="Telas do app FoodFlow" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center">
+      <div class="cover-fade" style="position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(to bottom,transparent,#f1edfb);pointer-events:none;z-index:5"></div>
+    </div>
+  </div>
+
+  <!-- ============ TEMA 01 · O CENÁRIO ATUAL ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07)">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">01</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">O cenário atual</h2></div>
+    </div>
+  </section>
+
+  <!-- 1.1 Definição do problema -->
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    
+    <div style="background:linear-gradient(140deg,rgba(124,58,237,0.1),rgba(255,255,255,0.55));border:1px solid rgba(124,58,237,0.25);border-radius:18px;padding:34px 36px;margin-bottom:38px">
+      
+      <p style="font-size: 18.5px; line-height: 1.6; color: #1e2438; margin: 0; font-style: normal">Na correria do dia a dia e da gestão do lar, as pessoas esquecem do casaco no armário ou da validade da fruta na fruteira. Essa <strong style="color: #BE2BD7">invisibilidade do que está em desuso</strong> leva ao desperdício e impede que esses itens cheguem até quem precisa. Resolver isso é crucial para reduzir desperdício, combater a fome e criar uma circulação eficiente e digna de bens entre quem tem e quem precisa.&nbsp;A ONG luta contra a fome ajudando pessoas carentes, contando com a boa vontade de quem tem mais condições. Ela é o middleman dessa negociação e quer uma solução que torne a transição de bens entre os dois públicos mais eficiente e escalável. É desta premissa que nasce o FoodFLow . Boa leitura!</p><p></p><p></p>
+    </div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px">
+      
+      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px; width: 993px; height: 122px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:12px">Foco do case</div>
+        <p style="font-size:18px;line-height:1.5;color:#1e2438;margin:0;font-weight:600">A dificuldade de quem tem a doar chegar até quem precisa receber.</p>
+      </div>
+    </div>
+
+    
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#7c3aed;margin-bottom:8px">Quem é afetado</div><p style="font-size:14.5px;line-height:1.55;color:#646c80;margin:0">Quem tem bens sobrando (doadores) e quem precisa receber — populações em vulnerabilidade.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#7c3aed;margin-bottom:8px">Onde&nbsp; ocorre</div><p style="font-size:14.5px;line-height:1.55;color:#646c80;margin:0">Na gestão do lar — quando quem tem sobrando não percebe que o item está em desuso e deixa de repassá-lo.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#7c3aed;margin-bottom:8px">Por que importa</div><p style="font-size:14.5px;line-height:1.55;color:#646c80;margin:0">A falta do básico leva pessoas à miséria. O doador não controla o que tem nem sabe como doar.</p></div>
+    </div>
+
+    
+  </section>
+
+  <!-- 1.2 Desk research (movido para o início, como "cenário atual") -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Desk research — o tamanho do problema</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 8px;line-height:1.6">Antes de falar com usuários, dados secundários ajudaram a dimensionar a urgência e a relevância social do desafio.</p>
+    <p style="font-size:13px;color:#9aa0b2;margin:0 0 26px;font-style:italic">Passe o mouse sobre cada card para expandir os detalhes.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start">
+      <sc-for list="{{ deskStats }}" as="d" hint-placeholder-count="4">
+        <div onMouseEnter="{{ d.onEnter }}" onMouseLeave="{{ d.onLeave }}" style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:26px 28px;cursor:default;transition:border-color .25s,background .25s" style-hover="border-color:rgba(124,58,237,0.4);background:#101015">
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="font-family:'Space Grotesk';font-weight:700;font-size:32px;color:#7c3aed;line-height:1;white-space:nowrap">{{ d.value }}</div>
+            <div style="flex:1;min-width:0">
+              <p style="font-size:14.5px;line-height:1.55;color:#4a5266;margin:0">{{ d.main }}</p>
+              <div style="{{ d.detailStyle }}"><p style="font-size:13.5px;line-height:1.6;color:#646c80;margin:14px 0 0">{{ d.rest }}</p></div>
+              <span style="display:block;margin-top:12px;font-size:12px;color:#9aa0b2">{{ d.source }}</span>
+            </div>
+            <span style="{{ d.plusStyle }}">+</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 1.3 Benchmarking / concorrentes -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Benchmarking &amp; concorrentes</h3>
+    <p style="font-size:16px;color:#646c80;max-width:680px;margin:0 0 26px;line-height:1.6">Analisei concorrentes diretos e indiretos. O achado principal: <strong style="color:#1e2438">nenhum permite que uma pessoa física doe seus próprios itens</strong>, nem oferece controle doméstico de estoque ou validade.</p>
+    <div style="overflow-x:auto;border:1px solid rgba(30,36,56,0.08);border-radius:16px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:640px">
+        <thead>
+          <tr style="background:#f4effe">
+            <th style="text-align:left;padding:16px 20px;font-weight:700;color:#1e2438;font-size:13px">Concorrente</th>
+            <th style="padding:16px 14px;font-weight:600;color:#8a93a6;font-size:12.5px">Combate ao desperdício</th>
+            <th style="padding:16px 14px;font-weight:600;color:#8a93a6;font-size:12.5px">Controle de estoque do usuário</th>
+            <th style="padding:16px 14px;font-weight:600;color:#8a93a6;font-size:12.5px">Custo ao usuário</th>
+            <th style="padding:16px 14px;font-weight:600;color:#8a93a6;font-size:12.5px">Doação como PF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ benchmarks }}" as="row" hint-placeholder-count="5">
+            <tr style="border-top:1px solid rgba(30,36,56,0.07)">
+              <td style="padding:15px 20px;font-weight:600;color:#1e2438">{{ row.name }}</td>
+              <td style="text-align:center;padding:15px 14px;color:#8a93a6">{{ row.desp }}</td>
+              <td style="text-align:center;padding:15px 14px;color:#8a93a6">{{ row.estoque }}</td>
+              <td style="text-align:center;padding:15px 14px;color:#8a93a6">{{ row.custo }}</td>
+              <td style="text-align:center;padding:15px 14px;color:#f43f5e;font-weight:600">{{ row.doacao }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:14px;color:#9aa0b2;margin:18px 0 0;font-style:italic">Insight competitivo: existe um espaço em branco claro — unir gestão doméstica de bens à possibilidade de doação por pessoa física.</p>
+  </section>
+
+  <!-- ============ TEMA 02 · OS USUÁRIOS ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">02</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">Os usuários</h2></div>
+    </div>
+  </section>
+
+  <!-- 2.1 Persona -->
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#1e2438">Persona</h3>
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start">
+      <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(124,58,237,0.22);min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;position:sticky;top:90px">
+        <img src="assets/persona-mariana.png" alt="Mariana Alves" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 22%;display:block">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(255,255,255,0.97) 12%,rgba(255,255,255,0.88) 33%,rgba(255,255,255,0.42) 57%,rgba(255,255,255,0) 80%)"></div>
+        <div style="position:relative;padding:26px 26px 28px">
+          <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:22px;margin:0 0 4px;color:#1e2438">Mariana Alves</h3>
+          <div style="font-size:14px;color:#7c3aed;font-weight:600;margin-bottom:16px">34 anos · Analista administrativa</div>
+          <div style="border-top:1px solid rgba(30,36,56,0.12);padding-top:16px;font-size:14.5px;font-style:italic;color:#27304a;line-height:1.55">" Eu quero doar pra não deixar estragar. Mas na correria é&nbsp; difícil manter o controle das datas"</div>
+        </div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <p style="font-size:15px;color:#646c80;line-height:1.6;margin:0">Mariana mora com o parceiro · Classe média urbana · Tem ensino superior · Compra em lojas físicas e paga no cartão.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+          <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:24px">
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#10b981;margin-bottom:14px">Objetivos</div>
+            <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.7"><li>Economizar sem desperdiçar</li><li>Controlar o que entra e sai de casa</li><li>Doar de forma simples e confiável</li><li>Fazer “a coisa certa” sem mais trabalho</li></ul>
+          </div>
+          <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:24px">
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:14px">Dores</div>
+            <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.7"><li>Esquece itens no armário e na geladeira</li><li>Compra mais do que precisa</li><li>Não sabe o que ainda vale doar</li><li>Só percebe quando o item já venceu</li></ul>
+          </div>
+        </div>
+        <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:24px 26px">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:14px">Necessidades</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <span style="font-size:14px;color:#4a5266;background:rgba(124,58,237,0.05);border:1px solid rgba(30,36,56,0.09);padding:8px 14px;border-radius:999px">Alertas simples e úteis</span>
+            <span style="font-size:14px;color:#4a5266;background:rgba(124,58,237,0.05);border:1px solid rgba(30,36,56,0.09);padding:8px 14px;border-radius:999px">Ver o que está parado/vencendo</span>
+            <span style="font-size:14px;color:#4a5266;background:rgba(124,58,237,0.05);border:1px solid rgba(30,36,56,0.09);padding:8px 14px;border-radius:999px">Cadastro fácil de itens</span>
+            <span style="font-size:14px;color:#4a5266;background:rgba(124,58,237,0.05);border:1px solid rgba(30,36,56,0.09);padding:8px 14px;border-radius:999px">Pontos de doação claros</span>
+            <span style="font-size:14px;color:#4a5266;background:rgba(124,58,237,0.05);border:1px solid rgba(30,36,56,0.09);padding:8px 14px;border-radius:999px">Confiança no destino</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.2 Jornada do usuário atual -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0;color:#1e2438">Jornada do usuário atual</h3></div>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">A jornada de doação de alimentos sem o FoodFlow é longa, dependente de esforço próprio e todos as etapas tem pontos de atrito onde a maioria das pessoas desiste e acaba jogando a comida fora. Abaixo o passo a passo do ponto de vista da Mariana, alguém que tem itens em casa e quer doar.</p>
+    <!-- Curva emocional -->
+    <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:22px 26px 14px;margin-bottom:18px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px">
+        <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2">Curva emocional ao longo da jornada</span>
+        <span style="font-size:12.5px;color:#8a93a6">Boa intenção <span style="color:#c9c2de">———›</span> desistência &amp; desperdício</span>
+      </div>
+      <svg viewBox="0 0 1100 210" preserveAspectRatio="none" style="display:block;width:100%;height:120px" aria-label="Curva emocional decrescente">
+        <defs>
+          <linearGradient id="emoLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#10b981"></stop>
+            <stop offset="45%" stop-color="#f59e0b"></stop>
+            <stop offset="100%" stop-color="#f43f5e"></stop>
+          </linearGradient>
+          <linearGradient id="emoFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(124,58,237,0.12)"></stop>
+            <stop offset="100%" stop-color="rgba(124,58,237,0)"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M91 55 C150 60,215 68,274 74 C335 82,400 112,457 122 C515 132,580 150,640 158 C700 165,765 186,823 190 C880 192,950 186,1006 182 L1006 210 L91 210 Z" fill="url(#emoFill)"></path>
+        <path d="M91 55 C150 60,215 68,274 74 C335 82,400 112,457 122 C515 132,580 150,640 158 C700 165,765 186,823 190 C880 192,950 186,1006 182" fill="none" stroke="url(#emoLine)" stroke-width="3.5" stroke-linecap="round"></path>
+        <circle cx="91" cy="55" r="6" fill="#10b981"></circle>
+        <circle cx="274" cy="74" r="6" fill="#10b981"></circle>
+        <circle cx="457" cy="122" r="6" fill="#f59e0b"></circle>
+        <circle cx="640" cy="158" r="6" fill="#f59e0b"></circle>
+        <circle cx="823" cy="190" r="6" fill="#f43f5e"></circle>
+        <circle cx="1006" cy="182" r="6" fill="#f43f5e"></circle>
+      </svg>
+    </div>
+
+    <!-- Etapas -->
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">
+      <!-- 1 -->
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#10b981"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">01</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Percebe que tem itens sobrando</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Nota, por acaso, itens parados na despensa ou perto de vencer.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Boa vontade — “podia doar isso”. 🙂</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">A percepção é aleatória, sem organização.</p></div>
+      </div>
+      <!-- 2 -->
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#10b981"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">02</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Decide que quer doar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Forma a intenção de não deixar estragar e repassar o item.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Motivada, com propósito. 😊</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">A intenção depende de lembrar na hora certa.</p></div>
+      </div>
+      <!-- 3 -->
+      <div style="background:#ffffff;border:1px solid rgba(245,158,11,0.28);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f59e0b"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">03</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Procura para onde doar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Pesquisa ONGs, pergunta a conhecidos, busca no Google.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Dúvida e insegurança sobre o destino. 😕</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Informação dispersa; não sabe quem aceita o quê.</p></div>
+      </div>
+      <!-- 4 -->
+      <div style="background:#ffffff;border:1px solid rgba(245,158,11,0.28);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f59e0b"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">04</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Tenta contato e combina</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Liga, manda mensagem, tenta alinhar horário e local.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Impaciência — processo trabalhoso. 😟</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Retorno lento e regras pouco claras.</p></div>
+      </div>
+      <!-- 5 -->
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.3);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f43f5e"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">05</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Precisa se deslocar</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Teria que separar, embalar e levar até o ponto de coleta.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Cansaço — “não tenho tempo pra isso”. 😣</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Esforço alto derruba a boa intenção.</p></div>
+      </div>
+      <!-- 6 -->
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.3);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:13px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#f43f5e"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:#7c3aed;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">06</span></div>
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px;color:#1e2438;line-height:1.25">Desiste e descarta</div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Faz</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Sem energia para o processo, joga o alimento fora.</p></div>
+        <div><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9aa0b2;margin-bottom:4px">Sente</div><p style="font-size:12.5px;line-height:1.5;color:#4a5266;margin:0">Culpa e frustração da intenção perdida. 😞</p></div>
+        <div style="margin-top:auto"><div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:4px">Atrito</div><p style="font-size:12.5px;line-height:1.5;color:#646c80;margin:0">Comida e dinheiro desperdiçados; a ONG não recebe.</p></div>
+      </div>
+    </div>
+
+    <!-- Oportunidades -->
+    <div style="margin-top:22px;background:linear-gradient(140deg,rgba(124,58,237,0.1),rgba(16,185,129,0.08));border:1px solid rgba(124,58,237,0.22);border-radius:18px;padding:28px 30px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px">Cada atrito virou uma oportunidade de design</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.14);padding:4px 9px;border-radius:999px">Etapas 1–2</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Tornar visível o que está sobrando, na hora certa.</p></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.14);padding:4px 9px;border-radius:999px">Etapas 3–4</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Encurtar a busca com destinos próximos e confiáveis.</p></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;font-size:11px;font-weight:700;color:#0f9d6e;background:rgba(16,185,129,0.16);padding:4px 9px;border-radius:999px">Etapas 5–6</span><p style="font-size:14px;line-height:1.5;color:#3f475c;margin:0;font-weight:600">Reduzir o esforço de doar a poucos toques no app.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEMA 03 · A VALIDAÇÃO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">03</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">A validação</h2></div>
+    </div>
+  </section>
+
+  <!-- 3.1 Matriz CSD -->
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Matriz CSD</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 24px;line-height:1.6">Antes da pesquisa, mapeei o que já era certeza, o que eram suposições e o que ainda gerava dúvida — para direcionar o que precisava ser investigado.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(16,185,129,0.25);border-radius:16px;padding:24px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#10b981;margin-bottom:16px">Certezas</div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:15px;line-height:1.8">
+          <li>Pessoas compram por impulso</li>
+          <li>Há muito desperdício</li>
+        </ul>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(124,58,237,0.25);border-radius:16px;padding:24px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px">Suposições</div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:15px;line-height:1.7">
+          <li>Um app pode tornar o trabalho da ONG mais escalável</li>
+        </ul>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.25);border-radius:16px;padding:24px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#f43f5e;margin-bottom:16px">Dúvidas</div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:15px;line-height:1.7">
+          <li>Onde se cruzam quem compra mantimentos e quem engaja em causas?</li>
+          <li>O que gera o desperdício?</li>
+          <li>Quais são os hábitos de compra?</li>
+          <li>Gestão financeira ajudaria a ONG?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.2 Pesquisa com usuários -->
+  
+
+  <!-- 3.3 Análise / insights -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Pesquisa com usuários</h3>
+    <p style="font-size: 16px; color: #646c80; max-width: 720px; margin: 0 0 28px; line-height: 1.6">Conduzi uma pesquisa estruturada quantitativa com 26 respondentes para traduzir em números hábitos de compra, controle de validade, gestão financeira e disposição para doar. O público: Pessoas que compram mantimentos para sua casa.</p>
+
+    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;margin-bottom:32px">
+      <div style="background: #ffffff; border: 1px solid rgba(30,36,56,0.08); border-radius: 16px; padding: 26px 28px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px">Pontos investigados</div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.75;column-count:2;column-gap:40px">
+          <li>Perfil do público (idade, escolaridade, composição familiar)</li>
+          <li>Hábitos que causam desperdício</li>
+          <li>Compras online vs. offline (potenciais parceiros)</li>
+          <li>Compra por volume vs. por unidade</li>
+          <li>Controle de gastos e de validade</li>
+          <li>Hábito e barreiras de doação</li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 14px">
+      <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+        <div style="background:linear-gradient(150deg,#f0e9fe,#ffffff);border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:28px 22px;text-align:center">
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:52px;color:#7c3aed;line-height:1">{{ m.value }}</div><div style="font-size:13.5px;color:#646c80;margin-top:12px;line-height:1.45">{{ m.label }}</div>
+          
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:13px;color:#9aa0b2;margin:6px 0 0;font-style:italic">Base: 26 respondentes. Percentuais aproximados conforme análise da pesquisa.</p>
+  </section><section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Análise de dados da pesquisa — principais insights</h3>
+    <p style="font-size:15.5px;color:#646c80;margin:0 0 28px;max-width:680px;line-height:1.6">A leitura cruzada dos dados revelou um deslocamento importante do problema.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <sc-for list="{{ insights }}" as="ins" hint-placeholder-count="6">
+        <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:24px 26px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;color:#fff;background:#7c3aed;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none">{{ ins.n }}</span>
+            <h4 style="font-family:'Space Grotesk';font-weight:600;font-size:16.5px;margin:0;line-height:1.3;color:#1e2438">{{ ins.title }}</h4>
+          </div>
+          <p style="font-size:14.5px;line-height:1.6;color:#646c80;margin:0">{{ ins.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:30px;background:linear-gradient(140deg,rgba(16,185,129,0.1),rgba(255,255,255,0.55));border:1px solid rgba(16,185,129,0.28);border-radius:18px;padding:34px 36px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:14px">Síntese dos achados</div>
+      <p style="font-size:20px;line-height:1.55;color:#1e2438;margin:0;font-weight:600">O problema não começa na doação — começa na falta de visibilidade e gestão leve dos bens dentro de casa.</p>
+      <p style="font-size:16px;line-height:1.6;color:#646c80;margin:16px 0 0">A melhor direção não é começar com “doe aqui”, e sim: <em style="color:#059669">“te ajudo a lembrar, organizar e decidir o que fazer com o que você já tem”</em> — e a doação entra como desdobramento natural da rotina.</p>
+    </div>
+  </section>
+
+  <!-- ============ TEMA 04 · O DESAFIO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">04</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">O desafio</h2></div>
+    </div>
+  </section>
+
+  <!-- 4.1 Reposicionamento / HMW -->
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Da hipótese inicial ao desafio reposicionado</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 24px;line-height:1.6">O briefing pedia “um app de doação”. A validação mostrou que a dor real nasce antes — e reposicionou o desafio.</p>
+
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px;margin-bottom:30px">
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8a93a6;margin-bottom:10px">Hipótese inicial</div><p style="font-size:16px;line-height:1.55;color:#4a5266;margin:0">Construir um app de doação que conecte doadores à ONG.</p></div>
+      <span style="font-size:26px;color:#7c3aed">→</span>
+      <div style="background:linear-gradient(140deg,rgba(124,58,237,0.12),rgba(255,255,255,0.55));border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:10px">Desafio reposicionado</div><p style="font-size:16px;line-height:1.55;color:#1e2438;margin:0;font-weight:600">Desenhar um app de organização doméstica com saída inteligente para doação.</p></div>
+    </div>
+
+    <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:26px 30px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed;margin-bottom:14px">How Might We</div>
+      <p style="font-size:18px;line-height:1.55;color:#1e2438;margin:0;font-weight:600">Como podemos ajudar a pessoa a enxergar e decidir o que fazer com o que já tem em casa — de forma que doar se torne o passo natural?</p>
+    </div>
+  </section>
+
+  <!-- ============ TEMA 05 · A SOLUÇÃO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">05</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">A solução</h2></div>
+    </div>
+  </section>
+
+  <!-- 5.2 Priorização -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Priorização de funcionalidades</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">As ideias foram priorizadas por impacto x esforço e organizadas no fluxo que guia o usuário da descoberta à recompensa.</p>
+
+    <ul class="flow-steps-list" style="display:none;list-style:none;margin:0 0 34px;padding:0">
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">1</span>Descoberta</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">2</span>Entrada de itens</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">3</span>Monitoramento</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">4</span>Alerta</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">5</span>Decisão</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,36,56,0.07);font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7c3aed">6</span>Doação</li>
+      <li style="display:flex;align-items:center;gap:11px;padding:11px 0;font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#1e2438"><span style="flex:none;width:22px;height:22px;border-radius:7px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff">7</span>Recompensa</li>
+    </ul>
+    <div class="flow-steps" style="display:flex;align-items:center;gap:7px;flex-wrap:nowrap;margin-bottom:34px">
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Descoberta</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Entrada de itens</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Monitoramento</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Alerta</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Decisão</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1e2438;background:#f0e9fe;border:1px solid rgba(124,58,237,0.3);padding:9px 13px;border-radius:9px;white-space:nowrap">Doação</span>
+      <span style="color:#a99fce">→</span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#fff;background:#10b981;padding:9px 13px;border-radius:9px;white-space:nowrap">Recompensa</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(244,63,94,0.25);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px"><span style="width:9px;height:9px;border-radius:50%;background:#f43f5e"></span><span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#f43f5e">Prioridade alta</span></div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.75"><li>Controle simples de itens</li><li>Alertas de validade e desuso</li><li>Recomendação de próxima ação</li><li>Fluxo de doação com parceiros</li><li>Visão consolidada da casa</li></ul>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(124,58,237,0.25);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px"><span style="width:9px;height:9px;border-radius:50%;background:#7c3aed"></span><span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#7c3aed">Prioridade média</span></div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.75"><li>Leitura de nota fiscal/cupom</li><li>Resumo financeiro leve</li><li>Histórico de doações</li></ul>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(30,36,56,0.09);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px"><span style="width:9px;height:9px;border-radius:50%;background:#9aa0b2"></span><span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#8a93a6">Prioridade baixa</span></div>
+        <ul style="margin:0;padding-left:18px;color:#4a5266;font-size:14.5px;line-height:1.75"><li>Gamificação e metas</li><li>Sugestões preditivas</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.2b Jornada do usuário (protótipo interativo) -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0;color:#1e2438">Jornada do usuário</h3><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#10b981;background:rgba(16,185,129,0.14);border:1px solid rgba(16,185,129,0.3);padding:4px 10px;border-radius:999px">Interativo</span></div>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 22px;line-height:1.6">Com as funcionalidades priorizadas, mapeei a jornada da nova solução etapa a etapa. Protótipo navegável abaixo — interaja direto na página.</p>
+    <div style="position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(124,58,237,0.2);box-shadow:0 30px 80px -34px rgba(76,40,130,0.28);background:#f4effe;height:900px">
+      <iframe src="https://hire-proof-14200221.figma.site/?v=2" loading="lazy" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+    </div>
+    <p style="font-size:12.5px;color:#9aa0b2;margin:12px 0 0;font-style:italic">Protótipo interativo incorporado — requer conexão. <a href="https://hire-proof-14200221.figma.site" target="_blank" style="color:#7c3aed;font-weight:600;text-decoration:none">Abrir em tela cheia ↗</a></p>
+  </section>
+
+  <!-- 5.3 Fluxos & wireframes low-fi -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Fluxos &amp; wireframes low-fi</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 16px;line-height:1.6">A jornada foi desenhada para guiar o usuário de forma fluida, da invisibilidade do problema até a recompensa pelo bom comportamento:</p>
+    <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#7c3aed;margin-bottom:38px">Invisível → Visível → Urgente → Decidido → Resolvido → Recompensado</div>
+
+    <div class="no-scrollbar" style="display:flex;gap:22px;overflow-x:auto;padding-bottom:18px;margin:0 -48px;padding-left:48px;padding-right:48px">
+      <sc-for list="{{ wireframes }}" as="w">
+        <div style="flex:none;width:236px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><span style="{{ w.badgeStyle }}">{{ w.n }}</span><span style="font-size:13.5px;font-weight:600;color:#1e2438">{{ w.label }}</span></div>
+          <div style="width:236px;border-radius:26px;overflow:hidden;background:#fff;border:1px solid rgba(30,36,56,0.10);box-shadow:0 22px 50px -22px rgba(76,40,130,0.18)"><div role="img" aria-label="{{ w.label }}" style="{{ w.imgStyle }}"></div></div>
+          <p style="font-size:13px;color:#8a93a6;line-height:1.5;margin:14px 4px 0">{{ w.note }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:13px;color:#9aa0b2;margin:14px 0 0;font-style:italic">Wireframes de baixa fidelidade — os dois fluxos completos, do doador (violeta) ao receptor (verde).</p>
+  </section>
+
+  <!-- 5.4 Teste de usabilidade (low-fi) — PENDENTE -->
+  
+
+  <!-- 5.5 Guia de estilo -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Guia de estilo</h3>
+    <p style="font-size:16px;color:#646c80;max-width:720px;margin:0 0 26px;line-height:1.6">As decisões de UI que sustentam o protótipo de alta fidelidade. A cor carrega significado: violeta é a marca e a ação principal, verde é o lado de quem recebe e o “tudo certo”, rosa sinaliza urgência sem pânico e âmbar, atenção.</p>
+
+    <!-- Cores -->
+    <div style="font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2;margin-bottom:14px">Cores</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px">
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:linear-gradient(135deg,#8b5cf6,#c026d3)"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Gradiente da marca</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#8B5CF6 → #C026D3</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#7c3aed"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Violeta · Ação</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#7C3AED</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#10b981"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Verde · Receber / OK</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#10B981</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#f43f5e"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Rosa · Urgente</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#F43F5E</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#f59e0b"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Âmbar · Atenção</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#F59E0B</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#1e2438"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Navy · Texto</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#1E2438</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#f1edfb;border-bottom:1px solid rgba(30,36,56,0.06)"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Lavanda · Fundo</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#F1EDFB</div></div>
+      </div>
+      <div style="border:1px solid rgba(30,36,56,0.08);border-radius:14px;overflow:hidden;background:#fff">
+        <div style="height:78px;background:#ffffff;border-bottom:1px solid rgba(30,36,56,0.06)"></div>
+        <div style="padding:12px 14px"><div style="font-size:13.5px;font-weight:700;color:#1e2438">Branco · Card</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8a93a6;margin-top:3px">#FFFFFF</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px">
+      <!-- Tipografia -->
+      <div style="background:#fff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2;margin-bottom:18px">Tipografia</div>
+        <div style="font-weight:800;font-size:30px;color:#1e2438;line-height:1.1;letter-spacing:-0.01em">Olá, Maria 👋</div>
+        <div style="font-size:12px;color:#8a93a6;margin:4px 0 18px">Display · 800 · títulos de tela</div>
+        <div style="font-weight:700;font-size:19px;color:#1e2438">Sua meta mensal</div>
+        <div style="font-size:12px;color:#8a93a6;margin:4px 0 18px">Subtítulo · 700 · seções e itens</div>
+        <div style="font-size:15px;color:#3f475c;line-height:1.5">Organize, salve e doe alimentos antes que vençam.</div>
+        <div style="font-size:12px;color:#8a93a6;margin:4px 0 18px">Corpo · 400–500</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7c3aed">O que deseja fazer?</div>
+        <div style="font-size:12px;color:#8a93a6;margin-top:4px">Rótulo · 700 · caixa-alta espaçada</div>
+      </div>
+
+      <!-- Botões -->
+      <div style="background:#fff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2;margin-bottom:18px">Botões &amp; pills</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <button style="border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;color:#fff;background:linear-gradient(135deg,#7c3aed,#9333ea);box-shadow:0 12px 24px -10px rgba(124,58,237,0.7);cursor:pointer">Adicionar Item</button>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <span style="font-size:14px;font-weight:700;color:#fff;background:#7c3aed;padding:11px 20px;border-radius:999px">Aberto agora</span>
+            <span style="font-size:14px;font-weight:700;color:#5b6478;background:#fff;border:1px solid rgba(30,36,56,0.1);padding:11px 20px;border-radius:999px;box-shadow:0 6px 16px -10px rgba(40,20,90,0.4)">Mais próximo</span>
+            <span style="font-size:14px;font-weight:700;color:#fff;background:#f43f5e;padding:11px 20px;border-radius:999px">Reservar</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:2px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,#8b5cf6,#c026d3);color:#fff;font-size:26px;font-weight:300;box-shadow:0 14px 26px -10px rgba(192,38,211,0.6)">+</span>
+            <span style="font-size:13.5px;color:#8a93a6;line-height:1.5">FAB de “Novo item” —<br>gradiente da marca, sempre acessível</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Componentes: item cards + nav -->
+    <div style="background:#fff;border:1px solid rgba(30,36,56,0.08);border-radius:16px;padding:26px 28px">
+      <div style="font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9aa0b2;margin-bottom:18px">Componentes — card de item por status</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="background:#fff;border:1px solid rgba(30,36,56,0.06);border-left:5px solid #f43f5e;border-radius:12px;padding:16px 18px;box-shadow:0 10px 24px -16px rgba(40,20,90,0.4)"><div style="font-size:15px;font-weight:700;color:#1e2438">Leite Integral</div><div style="font-size:13.5px;font-weight:700;color:#f43f5e;margin-top:3px">Vence amanhã!</div><div style="font-size:12.5px;color:#9aa0b2;margin-top:3px">1 unidade</div></div>
+        <div style="background:#fff;border:1px solid rgba(30,36,56,0.06);border-left:5px solid #f59e0b;border-radius:12px;padding:16px 18px;box-shadow:0 10px 24px -16px rgba(40,20,90,0.4)"><div style="font-size:15px;font-weight:700;color:#1e2438">Queijo Minas</div><div style="font-size:13.5px;font-weight:700;color:#f59e0b;margin-top:3px">Vence em 5 dias</div><div style="font-size:12.5px;color:#9aa0b2;margin-top:3px">1 unidade</div></div>
+        <div style="background:#fff;border:1px solid rgba(30,36,56,0.06);border-left:5px solid #10b981;border-radius:12px;padding:16px 18px;box-shadow:0 10px 24px -16px rgba(40,20,90,0.4)"><div style="font-size:15px;font-weight:700;color:#1e2438">Sardinha em lata</div><div style="font-size:13.5px;font-weight:700;color:#10b981;margin-top:3px">Vence em 60 dias</div><div style="font-size:12.5px;color:#9aa0b2;margin-top:3px">3 latas</div></div>
+      </div>
+      <p style="font-size:13.5px;color:#8a93a6;margin:16px 0 0;line-height:1.55">Toda a interface usa cantos arredondados generosos, cards brancos sobre lavanda e a borda lateral colorida como leitura instantânea de prioridade — o usuário entende o estado de cada item sem ler.</p>
+    </div>
+  </section>
+
+  <!-- 5.6 Protótipo hi-fi · Fluxo -->
+  <section style="max-width:1100px;margin:0 auto;padding:56px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438">Protótipo de alta fidelidade · o fluxo</h3>
+    <p style="font-size:16px;color:#646c80;max-width:740px;margin:0 0 18px;line-height:1.6">A solução foi construída em alta fidelidade e está navegável. Tudo nasce de uma única decisão na abertura — <strong style="color:#1e2438">doar</strong> ou <strong style="color:#1e2438">receber</strong> — que ramifica em dois fluxos espelhados. Abaixo, a navegação real, tela a tela.</p>
+
+    <!-- branch note -->
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px;background:#fff;border:1px solid rgba(30,36,56,0.08);border-radius:14px;padding:16px 20px">
+      <span style="font-size:13px;color:#3f475c"><strong style="color:#1e2438">Splash → Escolha do papel</strong> é a raiz comum.</span>
+      <span style="font-size:12.5px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.1);padding:6px 12px;border-radius:999px">↳ Central do Doador</span>
+      <span style="font-size:12.5px;font-weight:700;color:#0f9d6e;background:rgba(16,185,129,0.12);padding:6px 12px;border-radius:999px">↳ Receber Doação</span>
+    </div>
+
+    <!-- TRILHA DOADOR -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <span style="width:11px;height:11px;border-radius:50%;background:#7c3aed"></span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:17px;color:#1e2438">Trilha do doador</span>
+      <span style="font-size:13px;color:#9aa0b2">— organizar a casa e transformar o que sobra em doação</span>
+    </div>
+    <div class="no-scrollbar" style="display:flex;align-items:flex-start;gap:6px;overflow-x:auto;padding:4px 48px 22px;margin:0 -48px 14px">
+      <sc-for list="{{ flowDoador }}" as="s" hint-placeholder-count="11">
+        <div style="flex:none;display:flex;align-items:flex-start;gap:6px">
+          <div style="flex:none;width:148px;text-align:center">
+            <div style="border-radius:22px;overflow:hidden;border:4px solid #fff;box-shadow:0 18px 36px -18px rgba(40,20,90,0.5)"><div role="img" aria-label="{{ s.label }}" style="{{ s.imgStyle }}"></div></div>
+            <div style="font-size:12.5px;font-weight:700;color:#7c3aed;margin-top:10px">{{ s.n }}</div>
+            <div style="font-size:12.5px;font-weight:600;color:#3f475c;margin-top:1px;line-height:1.3">{{ s.label }}</div>
+          </div>
+          <div style="{{ s.arrowStyle }}">→</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- TRILHA RECEPTOR -->
+    <div style="display:flex;align-items:center;gap:10px;margin:26px 0 16px">
+      <span style="width:11px;height:11px;border-radius:50%;background:#10b981"></span>
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:17px;color:#1e2438">Trilha do receptor</span>
+      <span style="font-size:13px;color:#9aa0b2">— encontrar pontos de doação e reservar o que precisa</span>
+    </div>
+    <div class="no-scrollbar" style="display:flex;align-items:flex-start;gap:6px;overflow-x:auto;padding:4px 48px 22px;margin:0 -48px">
+      <sc-for list="{{ flowReceptor }}" as="s" hint-placeholder-count="4">
+        <div style="flex:none;display:flex;align-items:flex-start;gap:6px">
+          <div style="flex:none;width:148px;text-align:center">
+            <div style="border-radius:22px;overflow:hidden;border:4px solid #fff;box-shadow:0 18px 36px -18px rgba(40,20,90,0.5)"><div role="img" aria-label="{{ s.label }}" style="{{ s.imgStyle }}"></div></div>
+            <div style="font-size:12.5px;font-weight:700;color:#0f9d6e;margin-top:10px">{{ s.n }}</div>
+            <div style="font-size:12.5px;font-weight:600;color:#3f475c;margin-top:1px;line-height:1.3">{{ s.label }}</div>
+          </div>
+          <div style="{{ s.arrowStyle }}">→</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:13px;color:#9aa0b2;margin:14px 0 0;font-style:italic">Telas reais do protótipo de alta fidelidade. Arraste lateralmente para percorrer cada fluxo.</p>
+
+    
+  </section>
+
+  <!-- 5.7 Protótipo navegável (embed em celular) -->
+  <section style="max-width:1100px;margin:0 auto;padding:64px 48px 0">
+    <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#1e2438;text-align:center">Experimente o protótipo</h3>
+    
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:28px">
+      <!-- phone frame -->
+      <div style="position:relative;width:390px;height:818px;background:#11131c;border-radius:54px;padding:13px;box-shadow:0 50px 110px -34px rgba(40,20,90,0.55),0 0 0 2px rgba(255,255,255,0.04) inset">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:26px;background:#11131c;border-radius:0 0 18px 18px;z-index:3"></div>
+        <div style="position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#f4effe">
+          <iframe src="https://foodflow-app-one.vercel.app/" loading="lazy" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+        </div>
+      </div><a href="https://foodflow-app-one.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;text-decoration:none;background:linear-gradient(135deg,#7c3aed,#c026d3);color:#fff;font-weight:600;font-size:15px;padding:14px 26px;border-radius:12px;box-shadow:0 12px 30px -8px rgba(124,58,237,0.5)">Abrir protótipo navegável ↗</a>
+
+      
+    </div>
+  </section>
+
+  <!-- ============ TEMA 06 · TESTES & RESULTADOS (OCULTO POR ENQUANTO) ============ -->
+  <!-- ============ TEMA 06 · TESTE DE USABILIDADE ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(30,36,56,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-family:'Space Grotesk';font-weight:700;font-size:62px;line-height:1;color:#7c3aed">06</span>
+      <div><h2 style="font-family:'Space Grotesk';font-weight:700;font-size:38px;letter-spacing:-0.02em;margin:0">Teste de usabilidade</h2></div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 90px">
+    <div style="background:linear-gradient(140deg,rgba(124,58,237,0.09),rgba(255,255,255,0.55));border:1px solid rgba(124,58,237,0.22);border-radius:18px;padding:56px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:24px;letter-spacing:-0.01em;margin:0;color:#1e2438">Em desenvolvimento</h3>
+      <p style="font-size:16px;color:#646c80;max-width:520px;margin:0;line-height:1.6">Os testes de usabilidade estão sendo desenvolvidos neste momento. Em breve eles estarão disponíveis aqui.</p>
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:22px" aria-label="Forno assando">
+        <defs>
+          <radialGradient id="ovenLight" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#ffd36b"></stop>
+            <stop offset="55%" stop-color="#ff9e3d"></stop>
+            <stop offset="100%" stop-color="#e0641b"></stop>
+          </radialGradient>
+        </defs>
+        <rect x="24" y="20" width="102" height="112" rx="14" fill="#ede7fa" stroke="#c9bdf0" stroke-width="2.5"></rect>
+        <rect x="24" y="20" width="102" height="26" rx="14" fill="#e0d6f6"></rect>
+        <circle cx="46" cy="33" r="4.5" fill="#7c3aed"></circle>
+        <circle cx="63" cy="33" r="4.5" fill="#b9a8ec"></circle>
+        <rect x="88" y="29.5" width="30" height="7" rx="3.5" fill="#c9bdf0"></rect>
+        <rect x="34" y="54" width="82" height="68" rx="10" fill="#f6f2fe" stroke="#c9bdf0" stroke-width="2"></rect>
+        <rect x="44" y="63" width="62" height="42" rx="8" fill="#2c2140"></rect>
+        <rect x="44" y="63" width="62" height="42" rx="8" fill="url(#ovenLight)" style="animation:ovenGlow 1.8s ease-in-out infinite;transform-origin:center"></rect>
+        <ellipse cx="66" cy="94" rx="13" ry="8" fill="#7a3f12" opacity="0.55"></ellipse>
+        <ellipse cx="88" cy="96" rx="11" ry="6.5" fill="#7a3f12" opacity="0.5"></ellipse>
+        <rect x="44" y="113" width="62" height="5" rx="2.5" fill="#b9a8ec"></rect>
+      </svg>
+      <p style="font-size:14px;color:#8a7fb0;margin:6px 0 0;font-style:italic;animation:ffpulse 1.6s ease-in-out infinite">Os pães estão assando e em breve estarão prontos!&nbsp;</p>
+    </div>
+  </section>
+  <!-- /TEMA 06 -->
+
+  <!-- NEXT / FOOTER -->
+  <section style="max-width:1100px;margin:0 auto;padding:40px 48px 90px">
+    <a href="Portfolio.dc.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;background:#ffffff;border:1px solid rgba(30,36,56,0.08);border-radius:18px;padding:30px 34px" style-hover="border-color:rgba(124,58,237,0.45)">
+      <div><div style="font-size:13px;color:#8a93a6;margin-bottom:6px">Navegação</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#1e2438">Voltar ao portfólio</div></div>
+      <span style="font-size:24px;color:#7c3aed">→</span>
+    </a>
+    <div style="text-align:center;margin-top:48px;color:#9aa0b2;font-size:13.5px">© 2026 Ulisses Laffranchi · Product Designer</div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;deskAlwaysOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Desk research&quot;}}">
+class Component extends DCLogic {
+  componentDidMount(){ this.attachDragScroll(); }
+  componentDidUpdate(){ this.attachDragScroll(); }
+  attachDragScroll(){
+    document.querySelectorAll('.no-scrollbar').forEach(el => {
+      if (el.__dragInit) return;
+      el.__dragInit = true;
+      el.style.cursor = 'grab';
+      el.style.userSelect = 'none';
+      el.style.scrollBehavior = 'auto';
+      let down = false, moved = false, startX = 0, startLeft = 0;
+      el.addEventListener('pointerdown', e => {
+        down = true; moved = false; startX = e.clientX; startLeft = el.scrollLeft;
+        el.style.cursor = 'grabbing';
+      });
+      el.addEventListener('pointermove', e => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        el.scrollLeft = startLeft - dx;
+      });
+      const end = () => { down = false; el.style.cursor = 'grab'; };
+      el.addEventListener('pointerup', end);
+      el.addEventListener('pointerleave', end);
+      el.addEventListener('pointercancel', end);
+      el.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+      el.addEventListener('dragstart', e => e.preventDefault());
+      el.addEventListener('wheel', e => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { el.scrollLeft += e.deltaY; e.preventDefault(); }
+      }, { passive: false });
+    });
+  }
+
+  benchmarks = [
+    {name:'Food to Save', desp:'Sim', estoque:'Não', custo:'Pago', doacao:'Não'},
+    {name:'iFood', desp:'Não', estoque:'Não', custo:'Pago', doacao:'Não'},
+    {name:'Assoc. Prato Cheio', desp:'Sim', estoque:'Não', custo:'—', doacao:'Não'},
+    {name:'Comida Invisível', desp:'Sim', estoque:'Não', custo:'—', doacao:'Só empresas'},
+    {name:'Uber Eats', desp:'Não', estoque:'Não', custo:'Pago', doacao:'Não'},
+  ];
+
+  metrics = [
+    {value:'84,6%', label:'controlam a validade só visualmente, sem método'},
+    {value:'77%', label:'decidem a compra pelo preço por unidade'},
+    {value:'85%', label:'compram em loja física e pagam no cartão'},
+    {value:'50%', label:'descartam ou só checam a aparência quando o item vence'},
+  ];
+
+  insights = [
+    {n:'1', title:'O usuário precisa enxergar o que sobra', body:'Mais da metade diz olhar a validade, mas quase todos só visualmente. O problema não é falta de consciência — é falta de visibilidade organizada. A solução deve ser um radar doméstico, não só um marketplace de doação.'},
+    {n:'2', title:'A decisão é guiada por economia', body:'77% decidem pelo preço por unidade; só 8% pela causa de evitar desperdício. Apelar apenas para a causa social não basta: a proposta de valor entra pela utilidade e consolida pelo impacto.'},
+    {n:'3', title:'O desperdício nasce no cotidiano', body:'Vem de pequenos excessos recorrentes — promoções por volume, compras de impulso — e não de um único comportamento extremo. São micro decisões mal acompanhadas ao longo do tempo.'},
+    {n:'4', title:'A jornada é majoritariamente offline', body:'85% compram em loja física, 85% pagam no cartão e 69% pegam nota fiscal. Abre oportunidade para leitura de cupom e cadastro rápido — sem depender de integração com e-commerce.'},
+    {n:'5', title:'O controle de gastos é fragmentado', body:'A maioria acompanha gastos por app do banco, planilha ou caderno. A oportunidade não é um app financeiro completo, e sim unir compra → estoque → validade → doação.'},
+    {n:'6', title:'Quando o item vence, já é tarde', body:'A decisão acontece na zona crítica. O sistema precisa atuar antes do vencimento, com alertas acionáveis: usar logo, doar agora, priorizar consumo.'},
+    {n:'7', title:'Há potencial de doação, falta ritual', body:'Muitos já doaram, mas de forma pouco estruturada. As barreiras: “não tenho hábito” e “não sei para quem doar”. Falta momento certo, destino confiável e fluxo simples.'},
+    {n:'8', title:'O público aceita aproveitar, com clareza', body:'Há abertura para mensagens como “consuma em X dias” ou “apto para doação imediata”, desde que a comunicação seja transparente e segura.'},
+  ];
+
+  deskStats = [
+    {value:'27 Mt', main:'de alimentos são descartados por ano no Brasil.', rest:'Cerca de 60% desse desperdício ocorre dentro das residências, o que equivale a mais de 40 kg por pessoa por ano. Arroz, feijão e carne estão entre os alimentos mais desperdiçados.', source:'ONU · Instituto Akatu'},
+    {value:'17%', main:'do total de alimentos adquiridos em 2019 foram para o lixo — 931 milhões de toneladas.', rest:'O desperdício se distribui entre residências, supermercados, restaurantes e outros serviços alimentares. Antes mesmo de chegar ao varejo, a FAO estima que cerca de 14% de todos os alimentos já são perdidos na cadeia de produção e distribuição.', source:'ONU Meio Ambiente (gov.br) · FAO'},
+    {value:'8–10%', main:'das emissões globais de gases de efeito estufa vêm do desperdício de alimentos.', rest:'O prejuízo econômico associado é de aproximadamente US$ 1 trilhão por ano. O Brasil está entre os 10 países que mais desperdiçam alimentos no mundo.', source:'ONU / FAO'},
+    {value:'36%', main:'dos desperdícios em supermercados e serviços de alimentação ocorrem por falta de controle e visibilidade de validades.', rest:'Segundo a ABRAS, isso resulta em produtos vencidos que vão direto para o lixo. Rotisseries e estabelecimentos de comida pronta perdem, em média, 4,32% do faturamento com alimentos descartados; em padarias e confeitarias, a perda é de 2,75%.', source:'ABRAS — Associação Brasileira de Supermercados'},
+  ];
+
+  flowDoadorRaw = [
+    {n:'01', label:'Splash', src:'assets/tela-00-splash.png'},
+    {n:'02', label:'Escolha do papel', src:'assets/tela-01-papel.png'},
+    {n:'03', label:'Home do doador', src:'assets/tela-02-home-doador.png'},
+    {n:'04', label:'Novo item', src:'assets/tela-03-novo-item.png'},
+    {n:'05', label:'Meus itens', src:'assets/tela-05-lista.png'},
+    {n:'06', label:'Alertas', src:'assets/tela-04-alertas.png'},
+    {n:'07', label:'Decidir', src:'assets/tela-07-decidir.png'},
+    {n:'08', label:'Onde doar', src:'assets/tela-08-onde-doar.png'},
+    {n:'09', label:'Confirmar', src:'assets/tela-09-confirmar.png'},
+    {n:'10', label:'Sucesso', src:'assets/tela-10-sucesso.png'},
+    {n:'11', label:'Histórico', src:'assets/tela-06-historico.png'},
+  ];
+  flowReceptorRaw = [
+    {n:'01', label:'Escolha do papel', src:'assets/tela-01-papel.png'},
+    {n:'02', label:'Home do receptor', src:'assets/tela-11-home-receptor.png'},
+    {n:'03', label:'Itens urgentes', src:'assets/tela-13-urgentes.png'},
+    {n:'04', label:'Itens recebidos', src:'assets/tela-12-recebidos.png'},
+  ];
+
+  wireframesRaw = [
+    {n:'01', track:'d', label:'Splash', src:'assets/wf-01-splash.png', note:'Abertura da marca enquanto o app carrega.'},
+    {n:'02', track:'d', label:'Escolha do papel', src:'assets/wf-02-boas-vindas.png', note:'Decisão-raiz: ser doador ou receber doação.'},
+    {n:'03', track:'d', label:'Dashboard do doador', src:'assets/wf-03-dashboard.png', note:'Panorama do lar: alertas, meta mensal e conquistas.'},
+    {n:'04', track:'d', label:'Novo item', src:'assets/wf-04-novo-item.png', note:'Cadastro rápido: nome, categoria, validade e quantidade.'},
+    {n:'05', track:'d', label:'Alertas de validade', src:'assets/wf-05-alertas.png', note:'Itens agrupados por urgência, cada um acionável.'},
+    {n:'06', track:'d', label:'Meus itens', src:'assets/wf-06-itens.png', note:'Lista completa do que está guardado em casa.'},
+    {n:'07', track:'d', label:'Histórico', src:'assets/wf-07-historico.png', note:'Itens doados, usados e descartados ao longo do tempo.'},
+    {n:'08', track:'d', label:'Decidir', src:'assets/wf-08-decidir.png', note:'Usar, doar ou descartar — com recomendação do app.'},
+    {n:'09', track:'d', label:'Escolha onde doar', src:'assets/wf-09-escolha-ong.png', note:'ONGs próximas com distância, horário e avaliação.'},
+    {n:'10', track:'d', label:'Confirmar doação', src:'assets/wf-10-confirmar-doacao.png', note:'Resumo, forma de entrega e data da coleta.'},
+    {n:'11', track:'d', label:'Doação confirmada', src:'assets/wf-11-doacao-confirmada.png', note:'Recompensa e reforço positivo após doar.'},
+    {n:'12', track:'r', label:'Home do receptor', src:'assets/wf-12-home-receptor.png', note:'Pontos de doação próximos e itens disponíveis.'},
+    {n:'13', track:'r', label:'Itens recebidos', src:'assets/wf-13-itens-recebidos.png', note:'Acompanhamento do que foi reservado e consumido.'},
+    {n:'14', track:'r', label:'Itens urgentes', src:'assets/wf-14-itens-urgentes.png', note:'Prioriza o que está perto de vencer para reservar.'},
+  ];
+
+  state = { hovered: null };
+
+  buildFlow(list, color){
+    return list.map((s,i) => ({
+      ...s,
+      arrowStyle: { flex:'none', marginTop:'150px', fontSize:'24px', fontWeight:300, color, padding:'0 2px', display: i === list.length-1 ? 'none' : 'block' },
+      imgStyle: { width:'100%', aspectRatio:'861 / 1864', backgroundImage:`url("${s.src}")`, backgroundSize:'cover', backgroundPosition:'top center', backgroundRepeat:'no-repeat' },
+    }));
+  }
+
+  renderVals(){
+    const hovered = this.state.hovered;
+    const always = this.props.deskAlwaysOpen ?? false;
+    const deskStats = this.deskStats.map((d, i) => {
+      const open = always || hovered === i;
+      return {
+        ...d,
+        onEnter: () => this.setState({ hovered: i }),
+        onLeave: () => this.setState({ hovered: null }),
+        detailStyle: { overflow:'hidden', maxHeight: open ? '320px' : '0px', opacity: open ? 1 : 0, transition:'max-height .38s ease, opacity .3s ease' },
+        plusStyle: { flex:'none', fontFamily:"'Space Grotesk', sans-serif", fontWeight:400, fontSize:'22px', lineHeight:1, color: open ? '#7c3aed' : '#a99fce', transform: open ? 'rotate(45deg)' : 'none', transition:'transform .3s ease, color .25s' },
+      };
+    });
+    return {
+      benchmarks: this.benchmarks,
+      metrics: this.metrics,
+      insights: this.insights,
+      deskStats,
+      flowDoador: this.buildFlow(this.flowDoadorRaw, '#7c3aed'),
+      flowReceptor: this.buildFlow(this.flowReceptorRaw, '#10b981'),
+      wireframes: this.wireframesRaw.map(w => ({
+        ...w,
+        badgeStyle: { fontFamily:"'Space Grotesk'", fontWeight:700, fontSize:'12px', color:'#fff', background: w.track === 'r' ? '#10b981' : '#7c3aed', padding:'3px 8px', borderRadius:'6px' },
+        imgStyle: { width:'100%', aspectRatio:'780 / 1688', backgroundImage:`url("${w.src}")`, backgroundSize:'cover', backgroundPosition:'top center', backgroundRepeat:'no-repeat' },
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

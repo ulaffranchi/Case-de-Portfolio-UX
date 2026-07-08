@@ -11,6 +11,9 @@ Os arquivos deste pacote são **referências de design feitas em HTML** — prot
 
 ## Screens / Views
 
+### 0. Portfolio — cases (visão geral)
+A seção "Cases" da home lista os dois case studies (FoodFlow e Astrea) em cards horizontais roláveis, cada um com imagem de capa, badges de disciplina, título, resumo de uma frase e link "Ver case completo".
+
 ### 1. Portfolio.dc.html — Página inicial
 - **Propósito**: apresentação pessoal e vitrine de cases de UX.
 - **Layout**: fundo escuro full-bleed, glows radiais ambientes roxo/verde no topo e no rodapé (`position:fixed`, `filter:blur`, animação `floatGlow` 14s). Largura máxima de conteúdo 1240px, padding lateral responsivo `clamp(20px,5vw,48px)`.
@@ -37,6 +40,25 @@ Os arquivos deste pacote são **referências de design feitas em HTML** — prot
 - **Placeholders**: existe um estilo utilitário `.ph` (fundo hachurado diagonal roxo, borda tracejada) usado para blocos de conteúdo ainda sem asset final — tratar como placeholder a substituir por conteúdo real, não como elemento de UI definitivo.
 - **Responsivo** (`≤760px`): nav e paddings reduzidos, grids viram 1 coluna, cover perde radius/sombra e vira full-bleed, tabelas viram scroll horizontal, `.flow-steps` (diagrama horizontal) é substituído por `.flow-steps-list` (lista vertical).
 
+### 3. Case-Astrea.dc.html — Case study "Astrea" (atividade prática de vaga)
+- **Propósito**: documentar uma atividade prática de recrutamento (vaga de UX Designer Sênior · Growth) — auditoria e redesenho do fluxo de ativação do Astrea, software de gestão jurídica da Aurum. Não é um produto do próprio candidato; é um exercício de UX sobre um produto real de terceiros, feito para o processo seletivo.
+- **Layout geral**: tema claro diferente do FoodFlow — fundo cinza-azulado (`#eef1f5`), texto quase-preto (`#12181f`), tipografia **Poppins** em peso único (sem par de fontes), replicando a identidade visual do documento original entregue no processo seletivo (paleta azul `#1e88e5`, verde de progresso `#0b6b1f → #22c55e`, vermelho de alerta `#ef4444`). Cards brancos com `border-radius:16px` e sombra suave.
+- **Nav**: link "← Voltar ao portfólio" + label "Astrea · UX Case Study".
+- **Hero**: badges (UX Research, Growth Design, UI · Protótipo hi-fi), eyebrow "Atividade prática · Vaga de UX Designer Sênior — Growth", H1 "Redesenho do fluxo de ativação", 2 cards de destaque (`< ⅓` dos usuários tratam a 1ª publicação; `10 → 7` passos), grid de metadados (Candidato / Vaga / Entregável / Data).
+- **Corpo em 10 seções numeradas**, espelhando o índice do documento original entregue para a vaga:
+  1. Resumo executivo.
+  2. Contexto e objetivo (o que é o Astrea, módulos centrais).
+  3. Como investiguei o problema — 8 hipóteses (H1–H8) e tabela de auditoria heurística (Nielsen + leis de Hick/Tesler/Jakob).
+  4. Mapa da jornada atual — imagem real do diagrama de fluxo (`assets/astrea-fluxo-jornada-atual.png`).
+  5. Métricas (métrica principal, secundárias, momento de valor, público, risco).
+  6. Oportunidades de melhoria (3 frentes).
+  7. Priorização — framework RICE (explicação dos 4 critérios).
+  8. Experimento proposto — racional das decisões, com foto real do esboço de baixa fidelidade em papel (`assets/astrea-wireframe-sketch.png`).
+  9. Fluxo atual × proposto — comparação de 10 passos atuais vs. 7 propostos, e 4 princípios comportamentais (Zeigarnik, objetivo gradiente, aversão à perda, Lei de Hick) + Lei de Jakob.
+  10. Protótipo de alta fidelidade — 12 cards em coluna única, cada um com badge azul "Passo N" (ou verde para o resultado final), título, e a screenshot real do protótipo dentro de uma caixa cinza-clara, com legenda em fonte monoespaçada abaixo do card.
+- **Screenshots reais**: diferente do FoodFlow (telas ilustrativas geradas), as imagens desta seção são capturas de tela reais do protótipo navegável e do produto Astrea, extraídas do PDF de entrega e fornecidas pelo usuário (algumas com dados sensíveis borrados/censurados pelo próprio usuário antes do envio). Tratar como assets finais, não regenerar.
+- **Responsivo**: mesmo padrão do FoodFlow (grids viram 1 coluna, nav e paddings reduzidos abaixo de 760px).
+
 ## Interactions & Behavior
 - Nav do portfólio usa scroll suave (`scroll-behavior:smooth`) para âncoras internas (`#cases`, `#sobre`, `#contato`).
 - Navegação entre páginas via link direto (`<a href>`), sem roteador client-side.
@@ -55,7 +77,16 @@ Não há estado de aplicação — ambas as páginas são estáticas/apresentaci
 - Fontes: Space Grotesk 700 (títulos), Manrope (corpo)
 - Radius: pills `999px`, cards `24px`, badges `8px`
 
-### Case-FoodFlow.dc.html (tema claro)
+### Case-Astrea.dc.html (tema claro · azul)
+- Fundo: `#eef1f5` · Texto: `#12181f` · Texto secundário: `#5b6472` / `#8892a0`
+- Azul de destaque: `#1e88e5` (badges, números de seção, links, botões)
+- Verde (fluxo proposto / resultado positivo): `#0b6b1f → #22c55e` (gradiente, usado em textos e badges de sucesso)
+- Vermelho (heurísticas não conformes / risco): `#ef4444`
+- Âmbar (parcial): `#e6a30f`
+- Fonte única: **Poppins** (400/600/700/800) — sem par serifada/monoespaçada; labels usam Poppins 700 em vez de mono.
+- Cards: brancos, `border-radius:16px`, sombra `0 12px 30px -18px rgba(18,24,31,.15)`, sem gradientes decorativos (visual mais "flat" que o FoodFlow).
+
+### Case-FoodFlow.dc.html (tema claro · roxo)
 - Fundo: `#f1edfb` · Texto: `#1e2438` · Texto secundário: `#646c80` / `#8a93a6`
 - Roxo de destaque: `#7c3aed` (títulos numerados, badges, borda de citação)
 - Fontes: Space Grotesk 700 (títulos), Manrope (corpo), JetBrains Mono (labels/eyebrows uppercase)
@@ -71,7 +102,8 @@ Pasta `assets/` incluída neste pacote:
 Todas as imagens foram geradas/preparadas para este case; tratar como assets finais a re-exportar (ou recriar em maior resolução) no projeto de destino conforme a necessidade da stack.
 
 ## Files
-- `Portfolio.dc.html` — página inicial do portfólio.
+- `Portfolio.dc.html` — página inicial do portfólio (agora lista 2 cases).
 - `Case-FoodFlow.dc.html` — case study completo do FoodFlow.
+- `Case-Astrea.dc.html` — case study completo do Astrea (atividade prática de vaga).
 - `support.js` — runtime interno do protótipo (não portar; é infraestrutura do ambiente de design, sem função no app final).
-- `assets/` — todas as imagens referenciadas pelas duas páginas.
+- `assets/` — todas as imagens referenciadas pelas três páginas, incluindo os prefixos `astrea-*` (screenshots reais do protótipo Astrea, capa do case e diagramas) e `tela-*`/`wf-*` (mockups gerados do FoodFlow).

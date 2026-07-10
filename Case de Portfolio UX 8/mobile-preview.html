@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview mobile</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:#0e0e12;display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px 16px;font-family:system-ui,sans-serif;color:#e9e9ee;min-height:100%}
+  .bar{display:flex;gap:10px}
+  .bar button{background:#1d1d24;color:#cfcfd6;border:1px solid #2c2c36;border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+  .bar button.active{background:#7c5cff;color:#fff;border-color:#7c5cff}
+  .phone{width:390px;max-width:100%;height:800px;border-radius:44px;background:#000;padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.6);border:1px solid #26262e;position:relative}
+  .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:2}
+  .screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#08080a}
+  iframe{width:100%;height:100%;border:0;display:block}
+  .hint{font-size:13px;color:#8a8a95}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <button id="b1" class="active" onclick="load('index.html',this)">Portfólio</button>
+    <button id="b2" onclick="load('Case-FoodFlow.dc.html',this)">Case FoodFlow</button>
+  </div>
+  <div class="phone"><div class="screen"><iframe id="fr" src="index.html"></iframe></div></div>
+  <div class="hint">Role dentro do celular · 390 × 800</div>
+  <script>
+    function load(src, btn){
+      document.getElementById('fr').src = src;
+      document.querySelectorAll('.bar button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

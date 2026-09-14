@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{margin:0;background:#eef1f5;color:#12181f;font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#1e88e5;color:#fff}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  .ph{position:relative;background:repeating-linear-gradient(135deg,#e9edf2,#e9edf2 11px,#dfe4ea 11px,#dfe4ea 22px);border:1px dashed rgba(18,24,31,0.18);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#7d8794;font-size:12px;text-align:center;padding:16px;line-height:1.5;gap:6px}
+  .case-root{display:flex;flex-direction:column}
+  .case-root nav{order:-2}
+  @media (max-width:760px){
+    .case-root nav{padding-left:20px !important;padding-right:20px !important}
+    .case-root nav span{display:none}
+    .case-root section, .case-root header, .case-root > div{padding-left:20px !important;padding-right:20px !important}
+    .case-root [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+    .case-root h1{font-size:32px !important}
+    .case-root table{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
+    .case-root .flow-track{flex-direction:column !important}
+  }
+</style>
+</helmet>
+
+<div class="case-root" style="position:relative;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;backdrop-filter:blur(14px);background:rgba(238,241,245,0.75);border-bottom:1px solid rgba(18,24,31,0.07)">
+    <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:#3d4652;font-size:14px;font-weight:600">← Voltar ao portfólio</a>
+    <span style="font-weight:600;font-size:14px;color:#8892a0">Astrea · UX Case Study</span>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative;max-width:1100px;margin:0 auto;padding:80px 48px 40px">
+    <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">UX Research</span>
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">Growth Design</span>
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">UI · Protótipo hi-fi</span>
+    </div>
+    <div style="font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#8892a0;margin-bottom:18px">Atividade prática · Vaga de UX Designer Sênior — Growth</div>
+    <h1 style="font-weight:800;font-size:54px;line-height:1.08;letter-spacing:-0.02em;margin:0 0 22px;max-width:880px;color:#12181f">Redesenho do fluxo de ativação</h1>
+    <p style="font-size:19px;line-height:1.6;color:#5b6472;max-width:720px;margin:0 0 36px">Do cadastro ao primeiro tratamento de publicação: um onboarding guiado para destravar o principal momento de valor do Astrea durante o trial.</p>
+
+    <!-- destaques -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:44px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px;box-shadow:0 12px 30px -18px rgba(18,24,31,0.15)">
+        <div style="font-weight:800;font-size:38px;color:#1e88e5;line-height:1">&lt; ⅓</div>
+        <p style="font-size:14.5px;color:#5b6472;margin:10px 0 0;line-height:1.5">dos usuários que iniciam o trial chegam a tratar a primeira publicação hoje.</p>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px;box-shadow:0 12px 30px -18px rgba(18,24,31,0.15)">
+        <div style="font-weight:800;font-size:38px;background:linear-gradient(90deg,#0b6b1f,#22c55e);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">10 → 7</div>
+        <p style="font-size:14.5px;color:#5b6472;margin:10px 0 0;line-height:1.5">passos no fluxo: jornada encurtada e reorganizada em torno do valor.</p>
+      </div>
+    </div>
+
+    <div style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(18,24,31,0.08);border:1px solid rgba(18,24,31,0.08);border-radius:16px;overflow:hidden">
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">Candidato</div><div style="font-size:15px;font-weight:600;color:#12181f">Ulisses Laffranchi</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">Vaga</div><div style="font-size:15px;font-weight:600;color:#12181f">UX Designer Sênior<br>· Growth</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">Entregável</div><div style="font-size:15px;font-weight:600;color:#12181f">Protótipo hi-fi</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">Data</div><div style="font-size:15px;font-weight:600;color:#12181f">22 de junho de 2026</div></div>
+    </div>
+  </header>
+
+  <!-- ============ 01 · RESUMO EXECUTIVO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07)">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">01</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Resumo executivo</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:14px">Para quem vai ler com pressa</div>
+    <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:18px;padding:34px 36px;box-shadow:0 12px 30px -20px rgba(18,24,31,0.15)">
+      <p style="font-size:18.5px;line-height:1.6;color:#12181f;margin:0 0 18px">Hoje, menos de um terço dos usuários que iniciam o período gratuito chega a tratar sua primeira publicação — o principal <em>wow effect</em> do Astrea, quando uma informação jurídica vira uma ação concreta dentro do sistema.</p>
+      <p style="font-size:16.5px;line-height:1.6;color:#3d4652;margin:0 0 18px">A auditoria do fluxo atual apontou o gargalo central: o onboarding orienta o usuário apenas até a etapa anterior ao tratamento e então o deixa sozinho diante de uma tela densa — sem guia, sem possibilidade de voltar e sem deixar evidente o valor da ação.</p>
+      <p style="font-size:16.5px;line-height:1.6;color:#3d4652;margin:0">A oportunidade escolhida foi reorganizar a jornada em um <strong style="color:#12181f">fluxo guiado e gamificado de 7 passos</strong> (contra 10 atuais), que antecipa a percepção de valor logo após o cadastro, conduz o usuário passo a passo até salvar o primeiro tratamento e usa progresso e recompensa para sustentar a motivação. Resultado esperado: mover a métrica de ativação — a taxa de usuários em trial que realizam o primeiro tratamento.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 · CONTEXTO E OBJETIVO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">02</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Contexto e objetivo</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">O primeiro tratamento é o momento que prova o valor</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 30px; line-height: 1.6">O Astrea é o software de gestão jurídica da Aurum, voltado a pequenos e médios escritórios de advocacia, com foco em produtividade e tranquilidade na rotina. Dentro da jornada do usuário, o primeiro tratamento de uma publicação é o momento mais crítico de geração de valor percebido durante o trial: é quando o usuário experimenta, na prática, a proposta do Astrea de transformar uma informação jurídica em uma ação estruturada. A baixa taxa de conclusão dessa etapa revela uma oportunidade clara de melhoria na descoberta de valor, na redução de atritos e na clareza dos próximos passos.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Controle de processos</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">Centraliza informações dos tribunais em um só lugar.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Atividades e prazos</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">Cada publicação vira tarefa, cada prazo entra na agenda.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Gestão financeira</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">Acompanha honorários e o financeiro do escritório.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · COMO INVESTIGUEI ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">03</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Como investiguei o problema</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">Percorri a jornada como uma pessoa advogada real</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 34px; line-height: 1.6">Criei uma conta no período de teste e percorri toda a jornada, do cadastro ao módulo de publicações, registrando impressões, gravando a navegação e capturando cada etapa. Em um processo completo, esta fase incluiria a construção de personas, pesquisa qualitativa e quantitativa e testes de usabilidade com usuários qualificados.</p>
+
+    <div style="font-weight:700;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8892a0;margin-bottom:14px">Hipóteses levantadas para validação</div>
+    <p style="font-size:14px;color:#8892a0;margin:0 0 18px;font-style:italic">Carecem de validação por pesquisa e testes; podem alimentar uma matriz de impacto × esforço e um mapa de empatia para alinhar o time.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:44px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H1</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Novos usuários não completam com facilidade o caminho para tratar uma publicação.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H2</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Novos usuários não confiam na ferramenta.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H3</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Não entendem o valor gerado: o poder de gestão da ferramenta.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H4</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Há dificuldade de escaneamento do texto na tela.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H5</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">O produto não mostra com clareza o valor criado.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H6</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Falta prevenção de erros ao longo do fluxo.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H7</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">A página de definir objetivo permite que o usuário se desvie da função principal.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">H8</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">Trazer a descrição do tratamento para dentro da jornada aumenta a taxa de sucesso.</p></div>
+    </div>
+
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#12181f">Auditoria heurística do fluxo</h3>
+    <p style="font-size:15px;color:#8892a0;margin:0 0 20px;font-style:italic">Baseada nas heurísticas de Nielsen e nas leis de Hick, Tesler e Jakob.</p>
+    <div style="overflow-x:auto;border:1px solid rgba(18,24,31,0.08);border-radius:16px">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px">
+        <thead>
+          <tr style="background:#e8f1fc">
+            <th style="text-align:left;padding:16px 20px;font-weight:700;color:#12181f;font-size:13px">Heurística</th>
+            <th style="text-align:left;padding:16px 14px;font-weight:600;color:#8892a0;font-size:12.5px">Avaliação</th>
+            <th style="text-align:left;padding:16px 14px;font-weight:600;color:#8892a0;font-size:12.5px">Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Visibilidade do status do sistema</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">Retornos visuais adequados em tempo real.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Correspondência com o mundo real</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">Linguagem familiar ao usuário.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Controle e liberdade do usuário</td><td style="padding:14px 14px;color:#ef4444;font-weight:600">Não conforme</td><td style="padding:14px 14px;color:#5b6472">Sem retorno a etapas; ativa aversão ao erro e aumenta a desistência.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Consistência e padrões</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">Segue convenções de plataforma.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Prevenção de erros</td><td style="padding:14px 14px;color:#ef4444;font-weight:600">Não conforme</td><td style="padding:14px 14px;color:#5b6472">Falta mensagem de confirmação em ações sensíveis.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Reconhecimento × memorização</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">Opções visíveis, baixa carga de memória.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Estética e design minimalista</td><td style="padding:14px 14px;color:#e6a30f;font-weight:600">Parcial</td><td style="padding:14px 14px;color:#5b6472">Conforme; menus colapsáveis poderiam melhorar a leitura.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Ajuda e documentação</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">Disponível, ainda que fora da jornada inicial.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Lei de Hick · excesso de opções</td><td style="padding:14px 14px;color:#1e88e5;font-weight:600">Validar</td><td style="padding:14px 14px;color:#5b6472">Análise preliminar OK; requer teste de usabilidade.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Lei de Tesler · complexidade</td><td style="padding:14px 14px;color:#1e88e5;font-weight:600">Validar</td><td style="padding:14px 14px;color:#5b6472">Avaliar quanto da complexidade o sistema pode absorver.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Esforço mínimo / fricção</td><td style="padding:14px 14px;color:#1e88e5;font-weight:600">Validar</td><td style="padding:14px 14px;color:#5b6472">Medir cliques e esperas até o aha moment via heatmaps.</td></tr>
+          <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">Gulf of execution</td><td style="padding:14px 14px;color:#0b8a3a;font-weight:600">Conforme</td><td style="padding:14px 14px;color:#5b6472">O usuário sabe qual é o próximo passo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 04 · MAPA DA JORNADA ATUAL ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">04</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Mapa da jornada atual</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">Do início do teste ao primeiro tratamento</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">O mapa reconstrói a jornada percorrida no trial. A orientação ativa do produto se concentra no início (cadastro e configuração) e se dissolve justamente nas etapas finais — acessar uma publicação, abrir tratamentos e preencher os dados — onde o abandono é mais provável.</p>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(18,24,31,0.08);box-shadow:0 30px 70px -34px rgba(18,24,31,0.22)">
+      <img src="assets/astrea-fluxo-jornada-atual.png" alt="Fluxo da jornada atual" style="display:block;width:100%;height:auto">
+    </div>
+    <p style="font-size:13px;color:#8892a0;margin:14px 0 0;font-style:italic">Fig. 1 — Mapa da jornada atual, reconstruído a partir da navegação no período de teste.</p>
+  </section>
+
+  <!-- ============ 05 · MÉTRICAS ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">05</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Métricas</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">O que vamos medir e mover</h3>
+    <div style="background:#ffffff;border:1px solid rgba(30,136,229,0.3);border-radius:16px;padding:26px 28px;margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:10px">Métrica principal</div>
+      <p style="font-size:19px;font-weight:600;color:#12181f;margin:0">Taxa de usuários em trial que realizam o primeiro tratamento de publicação.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">Métricas secundárias</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">Tempo até o primeiro tratamento · cliques até concluir · abandono por etapa.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">Momento de valor</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">Publicação transformada em ação concreta: tarefa, prazo, evento, audiência ou histórico.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">Público provável</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">Pessoa advogada ou pequeno/médio escritório em trial, com baixa familiaridade inicial com o Astrea.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ef4444;margin-bottom:10px">Risco central</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">Ver o módulo como "mais uma tela complexa" antes de perceber economia de tempo e segurança.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · OPORTUNIDADES DE MELHORIA ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">06</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Oportunidades de melhoria</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">Três frentes de crescimento orientado ao produto</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">01</span><span style="font-weight:600;font-size:16px;color:#12181f">Descoberta de valor</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">O usuário sabe que a funcionalidade existe, mas não entende por que ela importa para a sua rotina. Tornar o valor evidente já nos primeiros minutos, conectando a publicação à dor real de acompanhar prazos em vários tribunais.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">02</span><span style="font-weight:600;font-size:16px;color:#12181f">Usabilidade na execução</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">O fluxo funciona para quem já se habituou, mas tem fricção para novos usuários: passos demais, decisões pouco claras e falta de feedback. Reduzir o esforço necessário para concluir o primeiro tratamento.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">03</span><span style="font-weight:600;font-size:16px;color:#12181f">Clareza dos próximos passos</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">Após entrar no produto, o usuário não sabe qual é o passo mais valioso a seguir. Guiá-lo de forma ativa até o momento de descoberta de valor, com orientação contextual e senso de progresso.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 07 · PRIORIZAÇÃO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">07</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Priorização</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">Framework RICE para decidir o que mover primeiro</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">Para validar de forma assertiva e baseada em dados qual solução afeta mais a métrica de ativação, a priorização usaria o framework RICE, ponderando alcance, impacto, confiança e esforço de cada oportunidade.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">R</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Reach</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">Quantos usuários alcança</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">I</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Impact</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">Efeito na ativação</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">C</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Confidence</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">Confiança na estimativa</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">E</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Effort</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">Esforço de desenvolvimento</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 08 · EXPERIMENTO PROPOSTO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">08</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Experimento proposto</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">Um onboarding guiado, com raciocínio de gamificação</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">Prototipei um novo fluxo que reorganiza a jornada e a transforma em um guia passo a passo, reduzindo a carga de aprendizado e o número de decisões até o aha moment. Assim, a plataforma ganha mais controle sobre o rumo do usuário, podendo incentivá-lo ao longo do caminho e mitigar o abandono.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Guia até o sucesso</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Conduzir o usuário até concluir a tarefa, reduzindo a chance de desvio do caminho.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Valor antecipado</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Trazer a percepção de valor antes da execução, usando recompensa para motivar.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Jornada mais curta</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Simplificar e encurtar o caminho, de 10 para 7 passos essenciais.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">Liberdade e prevenção</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Permitir voltar etapas e conhecer a jornada antes de usar tudo, reduzindo erros e dúvidas.</p></div>
+    </div>
+
+    <h4 style="font-weight:600;font-size:19px;margin:0 0 12px;color:#12181f">Racional das decisões de design</h4>
+    <p style="font-size:15.5px;line-height:1.6;color:#5b6472;margin:0 0 18px">Antes das telas finais, esbocei o fluxo em baixa fidelidade para validar a sequência de passos. A proposta de valor vem logo após o cadastro: além dos benefícios já citados, ela inicia o storytelling que representa o momento de descoberta de valor. Testes podem indicar se essa tela funciona melhor com vídeo ou imagem.</p>
+    <p style="font-size:15.5px;line-height:1.6;color:#5b6472;margin:0 0 28px">Substituí o progresso em etapas por uma barra de progresso, para aproveitar melhor o efeito Zeigarnik, e adicionei uma seta de retorno: no teste, recorrer à seta do navegador durante o cadastro não se mostrou intuitivo. O botão de pular, embora possa parecer contraintuitivo, dá ao usuário uma saída de emergência sempre disponível; combinado a um pop-up, reforça a proposta de valor (efeito do gradiente de objetivo) e ativa o FOMO.</p>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(18,24,31,0.08);box-shadow:0 30px 70px -34px rgba(18,24,31,0.22)">
+      <img src="assets/astrea-wireframe-sketch.png" alt="Esboço de baixa fidelidade" style="display:block;width:100%;height:auto">
+    </div>
+    <p style="font-size:13px;color:#8892a0;margin:14px 0 0;font-style:italic">Fig. 2 — Esboço de baixa fidelidade usado para validar a sequência de passos do novo fluxo.</p>
+  </section>
+
+  <!-- ============ 09 · FLUXO ATUAL × PROPOSTO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">09</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Fluxo atual × proposto</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">De 10 passos dispersos a 7 passos guiados</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:16px">Fluxo atual · 10 passos</div>
+        <ol style="margin:0;padding-left:20px;color:#3d4652;font-size:14.5px;line-height:2">
+          <li>Faz o cadastro</li><li>Define o objetivo</li><li>Busca processos</li><li>Confirma as informações</li><li>Convida usuários</li><li>Entra na página de publicações</li><li>Acessa uma publicação</li><li>Clica em tratamentos</li><li>Seleciona o tratamento</li><li>Tratamento feito</li>
+        </ol>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(11,107,31,0.3);border-radius:16px;padding:26px 28px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#0b6b1f;margin-bottom:16px">Fluxo proposto · 7 passos</div>
+        <ol style="margin:0;padding-left:20px;color:#12181f;font-size:14.5px;line-height:2;font-weight:600">
+          <li>Faz o cadastro</li><li>Percebe valor <span style="font-size:11px;font-weight:700;color:#0b6b1f;background:rgba(34,197,94,0.16);padding:2px 8px;border-radius:999px;margin-left:6px">NOVO</span></li><li>Busca processos</li><li>Escolhe o processo</li><li>Edita o tratamento</li><li>Revisa os dados</li><li>Salva <span style="font-size:11px;font-weight:700;color:#1e88e5;background:rgba(30,136,229,0.14);padding:2px 8px;border-radius:999px;margin-left:6px">aha moment</span></li>
+        </ol>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#5b6472;margin:0 0 34px;line-height:1.6">Removidos os passos que não colaboravam para concluir a tarefa, como convidar usuários e definir objetivo, e a entrega de valor foi trazida já para o começo do fluxo.</p>
+
+    <h4 style="font-weight:600;font-size:19px;margin:0 0 18px;color:#12181f">Comportamento e psicologia considerados</h4>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Efeito Zeigarnik</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Uma trilha incompleta cria tensão saudável que estimula a conclusão do primeiro tratamento.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Objetivo gradiente</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Mostrar o quão perto se está da meta acelera a ação à medida que a conclusão se aproxima.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Aversão à perda</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Enquadrar o que se deixa de ganhar, como perder prazos espalhados em vários tribunais, aumenta a motivação.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Carga cognitiva · Lei de Hick</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Reduzir o número de decisões na primeira experiência diminui a paralisia e o abandono.</p></div>
+    </div>
+    <div style="background:#ffffff;border:1px solid rgba(30,136,229,0.3);border-radius:16px;padding:24px 26px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:10px">Lei de Jakob</div>
+      <p style="font-size:15px;line-height:1.6;color:#3d4652;margin:0">Usar padrões de interface já familiares evita que o usuário precise reaprender a interagir com o produto. Por isso, a alta fidelidade respeita a identidade visual do Astrea.</p>
+    </div>
+  </section>
+
+  <!-- ============ 10 · PROTÓTIPO DE ALTA FIDELIDADE ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">10</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">Protótipo de alta fidelidade</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">O novo fluxo, tela a tela</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 36px; line-height: 1.6">As telas a seguir materializam o fluxo proposto, respeitando a identidade visual do Astrea para que a experiência pareça parte natural do produto. Telas curtas de uma frase só conversam com o usuário, quebrando a jornada em objetivos claros — as <em>quests</em>.</p>
+
+    <div class="flow-track no-scrollbar" style="display:flex;flex-direction:column;gap:6px">
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 1</span><span style="font-weight:700;font-size:18px;color:#12181f">Cadastro pela OAB</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-cadastro-oab.png" alt="Cadastro pela OAB" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Entrada de baixo atrito: apenas a OAB para buscar processos automaticamente, com prova de valor à direita.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 1</span><span style="font-weight:700;font-size:18px;color:#12181f">Confirmação do cadastro</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-confirmacao-cadastro.png" alt="Confirmação do cadastro" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Reconhecimento em vez de digitação: o usuário só confirma os dados encontrados.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 2</span><span style="font-weight:700;font-size:18px;color:#12181f">Entrega de valor</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-entrega-valor.png" alt="Entrega de valor" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">A percepção de valor vem antes da execução, conectando a dor real às até 4 horas de trabalho economizadas por dia.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 3</span><span style="font-weight:700;font-size:18px;color:#12181f">Pesquisando publicações</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-pesquisando.png" alt="Pesquisando publicações" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Visibilidade do status do sistema: o usuário sabe que algo está acontecendo a seu favor.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 3</span><span style="font-weight:700;font-size:18px;color:#12181f">Publicações encontradas</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-publicacoes-encontradas.png" alt="Publicações encontradas" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Aversão à perda na prática: "3 publicações não tratadas" cria urgência saudável.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Quest</span><span style="font-weight:700;font-size:18px;color:#12181f">Convite à ação</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-quest-convite.png" alt="Convite à ação" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Telas de uma frase conversam com o usuário e quebram a jornada em objetivos claros.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Quest</span><span style="font-weight:700;font-size:18px;color:#12181f">Vamos começar</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-quest-comecar.png" alt="Vamos começar" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Telas de uma frase conversam com o usuário e quebram a jornada em objetivos claros.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 4</span><span style="font-weight:700;font-size:18px;color:#12181f">Escolha da publicação</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-escolha-publicacao.png" alt="Escolha da publicação" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Uma decisão de cada vez: o usuário escolhe a publicação a tratar.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 5</span><span style="font-weight:700;font-size:18px;color:#12181f">Edição do tratamento</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-edicao-detalhamento.png" alt="Edição do tratamento" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Preenchimento guiado, com o texto da publicação sempre visível ao lado para dar contexto à decisão.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#1e88e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 6</span><span style="font-weight:700;font-size:18px;color:#12181f">Revisão dos dados</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-resumo-confirmacao.png" alt="Revisão dos dados" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">Resumo antes de salvar: reduz erro e dá segurança para concluir a tarefa.</p>
+
+      <div style="background:#fff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#0b6b1f;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Passo 7</span><span style="font-weight:700;font-size:18px;color:#12181f">Saída de emergência</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-saida-emergencia.png" alt="Saída de emergência" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">O pop-up de "pular" oferece a saída de emergência e, ao mesmo tempo, reforça a proposta de valor e ativa o FOMO.</p>
+
+      <div style="background:#f2fbf5;border:1px solid rgba(11,107,31,0.28);border-radius:16px;padding:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:#0b6b1f;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">Resultado</span><span style="font-weight:700;font-size:18px;color:#12181f">Área de trabalho</span></div>
+        <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="assets/astrea-tela-area-trabalho.png" alt="Área de trabalho" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+      </div>
+      <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">O tratamento salvo vira tarefa e prazo na área de trabalho — nada passa despercebido.</p>
+
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#12181f">Validar a hipótese e escalar a motivação</h3>
+    <p style="font-size:15px;color:#5b6472;margin:0 0 28px">Próximos passos</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Priorizar via RICE</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Pontuar cada oportunidade para decidir o que entra primeiro no roadmap.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Testar com usuários</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Usabilidade moderada e heatmaps para validar as hipóteses levantadas.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">A/B na tela de valor</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Comparar vídeo × imagem na tela de entrega de valor.</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">Sistema de badges</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">Recompensas por frequência, tratamentos e cumprimento de agenda, eventualmente com parceiros.</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section style="max-width:1100px;margin:0 auto;padding:60px 48px 90px">
+    <a href="Portfolio.dc.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:18px;padding:30px 34px" style-hover="border-color:rgba(30,136,229,0.45)">
+      <div><div style="font-size:13px;color:#8892a0;margin-bottom:6px">Navegação</div><div style="font-weight:700;font-size:22px;color:#12181f">Voltar ao portfólio</div></div>
+      <span style="font-size:24px;color:#1e88e5">→</span>
+    </a>
+    <div style="text-align:center;margin-top:48px;color:#8892a0;font-size:13.5px">Astrea · Aurum · Handoff do fluxo de ativação · Junho de 2026</div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>

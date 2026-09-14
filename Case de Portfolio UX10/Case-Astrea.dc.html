@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{margin:0;background:#eef1f5;color:#12181f;font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#1e88e5;color:#fff}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  .ph{position:relative;background:repeating-linear-gradient(135deg,#e9edf2,#e9edf2 11px,#dfe4ea 11px,#dfe4ea 22px);border:1px dashed rgba(18,24,31,0.18);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#7d8794;font-size:12px;text-align:center;padding:16px;line-height:1.5;gap:6px}
+  .case-root{display:flex;flex-direction:column}
+  .case-root nav{order:-2}
+  @media (max-width:760px){
+    .case-root{display:block !important}
+    .case-root nav{padding-left:20px !important;padding-right:20px !important}
+    .case-root nav span{display:none}
+    .case-root section, .case-root header, .case-root > div{padding-left:20px !important;padding-right:20px !important;min-width:0}
+    .case-root [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+    .case-root h1{font-size:30px !important}
+    .case-root h2{font-size:26px !important}
+    .case-root [style*="62px"]{font-size:36px !important}
+    .case-root .flow-track{flex-direction:column !important}
+  }
+</style>
+</helmet>
+
+<div class="case-root" style="position:relative;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;backdrop-filter:blur(14px);background:rgba(238,241,245,0.75);border-bottom:1px solid rgba(18,24,31,0.07)">
+    <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:#3d4652;font-size:14px;font-weight:600">← {{ t.backToPortfolio }}</a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <span style="font-weight:600;font-size:14px;color:#8892a0">Astrea · UX Case Study</span>
+      <div style="display:flex;align-items:center;gap:2px;background:rgba(18,24,31,0.05);border:1px solid rgba(18,24,31,0.12);border-radius:999px;padding:3px">
+        <button onClick="{{ setLangPt }}" style="{{ langBtnPtStyle }}">PT</button>
+        <button onClick="{{ setLangEn }}" style="{{ langBtnEnStyle }}">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative;max-width:1100px;margin:0 auto;padding:80px 48px 40px">
+    <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">UX Research</span>
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">Growth Design</span>
+      <span style="font-size:12px;font-weight:600;color:#1e88e5;background:rgba(30,136,229,0.12);padding:6px 12px;border-radius:999px">{{ t.tagPrototype }}</span>
+    </div>
+    <div style="font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#8892a0;margin-bottom:18px">{{ t.heroKicker }}</div>
+    <h1 style="font-weight:800;font-size:54px;line-height:1.08;letter-spacing:-0.02em;margin:0 0 22px;max-width:880px;color:#12181f">{{ t.heroTitle }}</h1>
+    <p style="font-size:19px;line-height:1.6;color:#5b6472;max-width:720px;margin:0 0 36px">{{ t.heroSub }}</p>
+
+    <!-- destaques -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:44px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px;box-shadow:0 12px 30px -18px rgba(18,24,31,0.15)">
+        <div style="font-weight:800;font-size:38px;color:#1e88e5;line-height:1">&lt; ⅓</div>
+        <p style="font-size:14.5px;color:#5b6472;margin:10px 0 0;line-height:1.5">{{ t.stat1 }}</p>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px;box-shadow:0 12px 30px -18px rgba(18,24,31,0.15)">
+        <div style="font-weight:800;font-size:38px;background:linear-gradient(90deg,#0b6b1f,#22c55e);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">10 → 7</div>
+        <p style="font-size:14.5px;color:#5b6472;margin:10px 0 0;line-height:1.5">{{ t.stat2 }}</p>
+      </div>
+    </div>
+
+    <div style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(18,24,31,0.08);border:1px solid rgba(18,24,31,0.08);border-radius:16px;overflow:hidden">
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">{{ t.metaCandidate }}</div><div style="font-size:15px;font-weight:600;color:#12181f">Ulisses Laffranchi</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">{{ t.metaRole }}</div><div style="font-size:15px;font-weight:600;color:#12181f">{{ t.metaRoleValue }}<br>· Growth</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">{{ t.metaDeliverable }}</div><div style="font-size:15px;font-weight:600;color:#12181f">{{ t.tagPrototype }}</div></div>
+      <div style="background:#ffffff;padding:22px 24px"><div style="font-size:12px;color:#8892a0;font-weight:600;margin-bottom:7px">{{ t.metaDate }}</div><div style="font-size:15px;font-weight:600;color:#12181f">{{ t.metaDateValue }}</div></div>
+    </div>
+  </header>
+
+  <!-- ============ 01 · RESUMO EXECUTIVO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07)">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">01</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h01 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:14px">{{ t.tldrKicker }}</div>
+    <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:18px;padding:34px 36px;box-shadow:0 12px 30px -20px rgba(18,24,31,0.15)">
+      <p style="font-size:18.5px;line-height:1.6;color:#12181f;margin:0 0 18px">{{ t.tldr1a }} <em>wow effect</em> {{ t.tldr1b }}</p>
+      <p style="font-size:16.5px;line-height:1.6;color:#3d4652;margin:0 0 18px">{{ t.tldr2 }}</p>
+      <p style="font-size:16.5px;line-height:1.6;color:#3d4652;margin:0">{{ t.tldr3a }}<strong style="color:#12181f">{{ t.tldr3strong }}</strong>{{ t.tldr3b }}</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 · CONTEXTO E OBJETIVO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">02</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h02 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h02sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 30px; line-height: 1.6">{{ t.p02 }}</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.feat1t }}</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.feat1p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.feat2t }}</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.feat2p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.feat3t }}</div><p style="font-size:14.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.feat3p }}</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · COMO INVESTIGUEI ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">03</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h03 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h03sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 34px; line-height: 1.6">{{ t.p03 }}</p>
+
+    <div style="font-weight:700;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8892a0;margin-bottom:14px">{{ t.hypKicker }}</div>
+    <p style="font-size:14px;color:#8892a0;margin:0 0 18px;font-style:italic">{{ t.hypNote }}</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:44px">
+      <sc-for list="{{ hypotheses }}" as="h" hint-placeholder-count="8">
+        <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:20px 22px;display:flex;gap:14px"><span style="flex:none;font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">{{ h.n }}</span><p style="font-size:14px;line-height:1.55;color:#3d4652;margin:0">{{ h.text }}</p></div>
+      </sc-for>
+    </div>
+
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#12181f">{{ t.auditTitle }}</h3>
+    <p style="font-size:15px;color:#8892a0;margin:0 0 20px;font-style:italic">{{ t.auditSub }}</p>
+    <div style="overflow-x:auto;border:1px solid rgba(18,24,31,0.08);border-radius:16px">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px">
+        <thead>
+          <tr style="background:#e8f1fc">
+            <th style="text-align:left;padding:16px 20px;font-weight:700;color:#12181f;font-size:13px">{{ t.thHeuristic }}</th>
+            <th style="text-align:left;padding:16px 14px;font-weight:600;color:#8892a0;font-size:12.5px">{{ t.thEval }}</th>
+            <th style="text-align:left;padding:16px 14px;font-weight:600;color:#8892a0;font-size:12.5px">{{ t.thNote }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ heuristics }}" as="row" hint-placeholder-count="12">
+            <tr style="border-top:1px solid rgba(18,24,31,0.07)"><td style="padding:14px 20px;font-weight:600;color:#12181f">{{ row.name }}</td><td style="padding:14px 14px;color:{{ row.color }};font-weight:600">{{ row.status }}</td><td style="padding:14px 14px;color:#5b6472">{{ row.note }}</td></tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 04 · MAPA DA JORNADA ATUAL ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">04</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h04 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h04sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">{{ t.p04 }}</p>
+    <div onClick="{{ openMap }}" style="position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(18,24,31,0.08);box-shadow:0 30px 70px -34px rgba(18,24,31,0.22);cursor:zoom-in" style-hover="border-color:rgba(30,136,229,0.45)">
+      <img src="assets/astrea-fluxo-jornada-atual.png" alt="{{ t.fig1alt }}" style="display:block;width:100%;height:auto">
+      <div style="position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:7px;background:rgba(18,24,31,0.72);color:#fff;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)">
+        <span style="font-size:14px;line-height:1">⤢</span>{{ t.zoomHint }}
+      </div>
+    </div>
+    <p style="font-size:13px;color:#8892a0;margin:14px 0 0;font-style:italic">{{ t.fig1caption }}</p>
+  </section>
+
+  <!-- ============ 05 · MÉTRICAS ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">05</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h05 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">{{ t.h05sub }}</h3>
+    <div style="background:#ffffff;border:1px solid rgba(30,136,229,0.3);border-radius:16px;padding:26px 28px;margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:10px">{{ t.mainMetricKicker }}</div>
+      <p style="font-size:19px;font-weight:600;color:#12181f;margin:0">{{ t.mainMetric }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">{{ t.secMetricsT }}</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">{{ t.secMetricsP }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">{{ t.valueMomentT }}</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">{{ t.valueMomentP }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:10px">{{ t.audienceT }}</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">{{ t.audienceP }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:24px 26px"><div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ef4444;margin-bottom:10px">{{ t.riskT }}</div><p style="font-size:14.5px;line-height:1.6;color:#3d4652;margin:0">{{ t.riskP }}</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · OPORTUNIDADES DE MELHORIA ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">06</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h06 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">{{ t.h06sub }}</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">01</span><span style="font-weight:600;font-size:16px;color:#12181f">{{ t.opp1t }}</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">{{ t.opp1p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">02</span><span style="font-weight:600;font-size:16px;color:#12181f">{{ t.opp2t }}</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">{{ t.opp2p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="font-weight:700;font-size:13px;color:#fff;background:#1e88e5;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center">03</span><span style="font-weight:600;font-size:16px;color:#12181f">{{ t.opp3t }}</span></div><p style="font-size:14.5px;line-height:1.6;color:#5b6472;margin:0">{{ t.opp3p }}</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 07 · PRIORIZAÇÃO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">07</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h07 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h07sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">{{ t.p07 }}</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">R</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Reach</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">{{ t.riceR }}</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">I</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Impact</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">{{ t.riceI }}</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">C</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Confidence</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">{{ t.riceC }}</div></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px;text-align:center"><div style="font-weight:800;font-size:22px;color:#1e88e5">E</div><div style="font-size:13.5px;font-weight:600;color:#12181f;margin-top:6px">Effort</div><div style="font-size:12.5px;color:#8892a0;margin-top:4px">{{ t.riceE }}</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 08 · EXPERIMENTO PROPOSTO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">08</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h08 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h08sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 28px; line-height: 1.6">{{ t.p08 }}</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.exp1t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.exp1p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.exp2t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.exp2p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.exp3t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.exp3p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.exp4t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.exp4p }}</p></div>
+    </div>
+
+    <h4 style="font-weight:600;font-size:19px;margin:0 0 12px;color:#12181f">{{ t.rationaleTitle }}</h4>
+    <p style="font-size:15.5px;line-height:1.6;color:#5b6472;margin:0 0 18px">{{ t.rationale1 }}</p>
+    <p style="font-size:15.5px;line-height:1.6;color:#5b6472;margin:0 0 28px">{{ t.rationale2 }}</p>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(18,24,31,0.08);box-shadow:0 30px 70px -34px rgba(18,24,31,0.22)">
+      <img src="assets/astrea-wireframe-sketch.png" alt="{{ t.fig2alt }}" style="display:block;width:100%;height:auto">
+    </div>
+    <p style="font-size:13px;color:#8892a0;margin:14px 0 0;font-style:italic">{{ t.fig2caption }}</p>
+  </section>
+
+  <!-- ============ 09 · FLUXO ATUAL × PROPOSTO ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">09</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h09 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 22px;color:#12181f">{{ t.h09sub }}</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:16px;padding:26px 28px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8892a0;margin-bottom:16px">{{ t.currentFlowT }}</div>
+        <ol style="margin:0;padding-left:20px;color:#3d4652;font-size:14.5px;line-height:2">
+          <sc-for list="{{ currentFlow }}" as="s"><li>{{ s }}</li></sc-for>
+        </ol>
+      </div>
+      <div style="background:#ffffff;border:1px solid rgba(11,107,31,0.3);border-radius:16px;padding:26px 28px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#0b6b1f;margin-bottom:16px">{{ t.proposedFlowT }}</div>
+        <ol style="margin:0;padding-left:20px;color:#12181f;font-size:14.5px;line-height:2;font-weight:600">
+          <li>{{ t.pf1 }}</li><li>{{ t.pf2 }} <span style="font-size:11px;font-weight:700;color:#0b6b1f;background:rgba(34,197,94,0.16);padding:2px 8px;border-radius:999px;margin-left:6px">{{ t.newBadge }}</span></li><li>{{ t.pf3 }}</li><li>{{ t.pf4 }}</li><li>{{ t.pf5 }}</li><li>{{ t.pf6 }}</li><li>{{ t.pf7 }} <span style="font-size:11px;font-weight:700;color:#1e88e5;background:rgba(30,136,229,0.14);padding:2px 8px;border-radius:999px;margin-left:6px">aha moment</span></li>
+        </ol>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#5b6472;margin:0 0 34px;line-height:1.6">{{ t.flowNote }}</p>
+
+    <h4 style="font-weight:600;font-size:19px;margin:0 0 18px;color:#12181f">{{ t.psychTitle }}</h4>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.psych1t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.psych1p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.psych2t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.psych2p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.psych3t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.psych3p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.psych4t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.psych4p }}</p></div>
+    </div>
+    <div style="background:#ffffff;border:1px solid rgba(30,136,229,0.3);border-radius:16px;padding:24px 26px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1e88e5;margin-bottom:10px">{{ t.jakobT }}</div>
+      <p style="font-size:15px;line-height:1.6;color:#3d4652;margin:0">{{ t.jakobP }}</p>
+    </div>
+  </section>
+
+  <!-- ============ 10 · PROTÓTIPO DE ALTA FIDELIDADE ============ -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font-weight:800;font-size:62px;line-height:1;color:#1e88e5">10</span>
+      <h2 style="font-weight:700;font-size:38px;letter-spacing:-0.01em;margin:0;color:#12181f">{{ t.h10 }}</h2>
+    </div>
+  </section>
+  <section style="max-width:1100px;margin:0 auto;padding:44px 48px 0">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 14px;color:#12181f">{{ t.h10sub }}</h3>
+    <p style="font-size: 16px; color: #5b6472; margin: 0 0 36px; line-height: 1.6">{{ t.p10 }}</p>
+
+    <div class="flow-track no-scrollbar" style="display:flex;flex-direction:column;gap:6px">
+      <sc-for list="{{ screens }}" as="sc" hint-placeholder-count="13">
+        <div style="{{ sc.wrapStyle }}">
+          <div style="background:{{ sc.bg }};border:1px solid {{ sc.border }};border-radius:16px;padding:24px">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="background:{{ sc.badgeBg }};color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">{{ sc.step }}</span><span style="font-weight:700;font-size:18px;color:#12181f">{{ sc.title }}</span></div>
+            <div style="background:#eef1f5;border-radius:14px;padding:20px"><img src="{{ sc.src }}" alt="{{ sc.title }}" style="display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -14px rgba(18,24,31,0.25)"></div>
+          </div>
+          <p style="font-family:'Courier New',monospace;font-size:12.5px;color:#8892a0;margin:2px 0 22px 4px;line-height:1.5">{{ sc.note }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <section style="max-width:1100px;margin:0 auto;padding:84px 48px 0;border-top:1px solid rgba(18,24,31,0.07);margin-top:84px">
+    <h3 style="font-weight:600;font-size:24px;letter-spacing:-0.01em;margin:0 0 8px;color:#12181f">{{ t.nextTitle }}</h3>
+    <p style="font-size:15px;color:#5b6472;margin:0 0 28px">{{ t.nextKicker }}</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.next1t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.next1p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.next2t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.next2p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.next3t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.next3p }}</p></div>
+      <div style="background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:14px;padding:22px"><div style="font-size:13.5px;font-weight:700;color:#1e88e5;margin-bottom:8px">{{ t.next4t }}</div><p style="font-size:13.5px;line-height:1.55;color:#5b6472;margin:0">{{ t.next4p }}</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section style="max-width:1100px;margin:0 auto;padding:60px 48px 90px">
+    <a href="Portfolio.dc.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;background:#ffffff;border:1px solid rgba(18,24,31,0.08);border-radius:18px;padding:30px 34px" style-hover="border-color:rgba(30,136,229,0.45)">
+      <div><div style="font-size:13px;color:#8892a0;margin-bottom:6px">{{ t.navigationLabel }}</div><div style="font-weight:700;font-size:22px;color:#12181f">{{ t.backToPortfolio }}</div></div>
+      <span style="font-size:24px;color:#1e88e5">→</span>
+    </a>
+    <div style="text-align:center;margin-top:48px;color:#8892a0;font-size:13.5px">{{ t.footer }}</div>
+  </section>
+
+  <!-- LIGHTBOX · MAPA DA JORNADA -->
+  <sc-if value="{{ mapOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeMap }}" style="position:fixed;inset:0;z-index:200;background:rgba(9,13,18,0.9);backdrop-filter:blur(8px);display:flex;flex-direction:column">
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;color:#fff">
+      <span style="font-size:13.5px;font-weight:600;color:#c7ced6">{{ t.fig1caption }}</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ toggleZoom }}" style="cursor:pointer;border:1px solid rgba(255,255,255,0.24);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;display:flex;align-items:center;gap:7px">{{ zoomLabel }}</button>
+        <button onClick="{{ closeMap }}" aria-label="Fechar" style="cursor:pointer;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.24);background:rgba(255,255,255,0.08);color:#fff;font-size:17px;line-height:1">✕</button>
+      </div>
+    </div>
+    <div onClick="{{ stopProp }}" class="no-scrollbar" style="flex:1;overflow:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:{{ mapAlign }};justify-content:{{ mapAlign }};padding:0 16px 20px;touch-action:{{ mapTouch }}">
+      <img onClick="{{ toggleZoom }}" src="assets/astrea-fluxo-jornada-atual.png" alt="{{ t.fig1alt }}" style="{{ mapImgStyle }}">
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  state = { lang: (typeof localStorage !== 'undefined' && localStorage.getItem('site-lang')) || 'pt', mapOpen: false, mapZoom: false };
+  setLang = (lang) => { if (typeof localStorage !== 'undefined') localStorage.setItem('site-lang', lang); this.setState({ lang }); };
+  openMap = () => this.setState({ mapOpen: true, mapZoom: false });
+  closeMap = () => this.setState({ mapOpen: false, mapZoom: false });
+  toggleZoom = (e) => { if (e) e.stopPropagation(); this.setState(s => ({ mapZoom: !s.mapZoom })); };
+  stopProp = (e) => e.stopPropagation();
+
+  hypothesesPt = [
+    'Novos usuários não completam com facilidade o caminho para tratar uma publicação.',
+    'Novos usuários não confiam na ferramenta.',
+    'Não entendem o valor gerado: o poder de gestão da ferramenta.',
+    'Há dificuldade de escaneamento do texto na tela.',
+    'O produto não mostra com clareza o valor criado.',
+    'Falta prevenção de erros ao longo do fluxo.',
+    'A página de definir objetivo permite que o usuário se desvie da função principal.',
+    'Trazer a descrição do tratamento para dentro da jornada aumenta a taxa de sucesso.',
+  ];
+  hypothesesEn = [
+    "New users don't easily complete the path to treat a publication.",
+    "New users don't trust the tool.",
+    "They don't understand the value generated: the tool's management power.",
+    'There is difficulty scanning the text on screen.',
+    'The product does not clearly show the value created.',
+    'Error prevention is missing throughout the flow.',
+    'The set-goal page lets the user drift from the main function.',
+    'Bringing the treatment description into the journey increases the success rate.',
+  ];
+
+  heuristicsPt = [
+    {name:'Visibilidade do status do sistema', status:'Conforme', color:'#0b8a3a', note:'Retornos visuais adequados em tempo real.'},
+    {name:'Correspondência com o mundo real', status:'Conforme', color:'#0b8a3a', note:'Linguagem familiar ao usuário.'},
+    {name:'Controle e liberdade do usuário', status:'Não conforme', color:'#ef4444', note:'Sem retorno a etapas; ativa aversão ao erro e aumenta a desistência.'},
+    {name:'Consistência e padrões', status:'Conforme', color:'#0b8a3a', note:'Segue convenções de plataforma.'},
+    {name:'Prevenção de erros', status:'Não conforme', color:'#ef4444', note:'Falta mensagem de confirmação em ações sensíveis.'},
+    {name:'Reconhecimento × memorização', status:'Conforme', color:'#0b8a3a', note:'Opções visíveis, baixa carga de memória.'},
+    {name:'Estética e design minimalista', status:'Parcial', color:'#e6a30f', note:'Conforme; menus colapsáveis poderiam melhorar a leitura.'},
+    {name:'Ajuda e documentação', status:'Conforme', color:'#0b8a3a', note:'Disponível, ainda que fora da jornada inicial.'},
+    {name:'Lei de Hick · excesso de opções', status:'Validar', color:'#1e88e5', note:'Análise preliminar OK; requer teste de usabilidade.'},
+    {name:'Lei de Tesler · complexidade', status:'Validar', color:'#1e88e5', note:'Avaliar quanto da complexidade o sistema pode absorver.'},
+    {name:'Esforço mínimo / fricção', status:'Validar', color:'#1e88e5', note:'Medir cliques e esperas até o aha moment via heatmaps.'},
+    {name:'Gulf of execution', status:'Conforme', color:'#0b8a3a', note:'O usuário sabe qual é o próximo passo.'},
+  ];
+  heuristicsEn = [
+    {name:'Visibility of system status', status:'Meets', color:'#0b8a3a', note:'Adequate real-time visual feedback.'},
+    {name:'Match with the real world', status:'Meets', color:'#0b8a3a', note:'Language familiar to the user.'},
+    {name:'User control and freedom', status:'Fails', color:'#ef4444', note:'No way back through steps; triggers error aversion and increases drop-off.'},
+    {name:'Consistency and standards', status:'Meets', color:'#0b8a3a', note:'Follows platform conventions.'},
+    {name:'Error prevention', status:'Fails', color:'#ef4444', note:'Missing confirmation message on sensitive actions.'},
+    {name:'Recognition rather than recall', status:'Meets', color:'#0b8a3a', note:'Visible options, low memory load.'},
+    {name:'Aesthetic and minimalist design', status:'Partial', color:'#e6a30f', note:'Mostly fine; collapsible menus could improve readability.'},
+    {name:'Help and documentation', status:'Meets', color:'#0b8a3a', note:'Available, though outside the initial journey.'},
+    {name:"Hick's Law · choice overload", status:'To validate', color:'#1e88e5', note:'Preliminary analysis OK; needs usability testing.'},
+    {name:"Tesler's Law · complexity", status:'To validate', color:'#1e88e5', note:'Assess how much complexity the system can absorb.'},
+    {name:'Minimal effort / friction', status:'To validate', color:'#1e88e5', note:'Measure clicks and wait time to the aha moment via heatmaps.'},
+    {name:'Gulf of execution', status:'Meets', color:'#0b8a3a', note:'The user knows what the next step is.'},
+  ];
+
+  currentFlowPt = ['Faz o cadastro','Define o objetivo','Busca processos','Confirma as informações','Convida usuários','Entra na página de publicações','Acessa uma publicação','Clica em tratamentos','Seleciona o tratamento','Tratamento feito'];
+  currentFlowEn = ['Signs up','Sets a goal','Searches cases','Confirms information','Invites users','Enters the publications page','Opens a publication','Clicks on treatments','Selects the treatment','Treatment done'];
+
+  screensRaw = [
+    {step:'Passo 1', stepEn:'Step 1', titlePt:'Cadastro pela OAB', titleEn:'Sign-up via bar registration', src:'assets/astrea-tela-cadastro-oab.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Entrada de baixo atrito: apenas a OAB para buscar processos automaticamente, com prova de valor à direita.',
+      noteEn:'Low-friction entry: just the bar number to auto-search cases, with proof of value on the right.'},
+    {step:'Passo 1', stepEn:'Step 1', titlePt:'Confirmação do cadastro', titleEn:'Sign-up confirmation', src:'assets/astrea-tela-confirmacao-cadastro.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Reconhecimento em vez de digitação: o usuário só confirma os dados encontrados.',
+      noteEn:'Recognition instead of typing: the user only confirms the data found.'},
+    {step:'Passo 2', stepEn:'Step 2', titlePt:'Entrega de valor', titleEn:'Value delivery', src:'assets/astrea-tela-entrega-valor.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'A percepção de valor vem antes da execução, conectando a dor real às até 4 horas de trabalho economizadas por dia.',
+      noteEn:'Value perception comes before execution, connecting the real pain point to up to 4 hours of work saved per day.'},
+    {step:'Passo 3', stepEn:'Step 3', titlePt:'Pesquisando publicações', titleEn:'Searching publications', src:'assets/astrea-tela-pesquisando.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Visibilidade do status do sistema: o usuário sabe que algo está acontecendo a seu favor.',
+      noteEn:'Visibility of system status: the user knows something is happening in their favor.'},
+    {step:'Passo 3', stepEn:'Step 3', titlePt:'Publicações encontradas', titleEn:'Publications found', src:'assets/astrea-tela-publicacoes-encontradas.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Aversão à perda na prática: "3 publicações não tratadas" cria urgência saudável.',
+      noteEn:'Loss aversion in practice: "3 untreated publications" creates healthy urgency.'},
+    {step:'Quest', stepEn:'Quest', titlePt:'Convite à ação', titleEn:'Call to action', src:'assets/astrea-tela-quest-convite.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Telas de uma frase conversam com o usuário e quebram a jornada em objetivos claros.',
+      noteEn:'One-line screens talk to the user and break the journey into clear goals.'},
+    {step:'Quest', stepEn:'Quest', titlePt:'Vamos começar', titleEn:"Let's get started", src:'assets/astrea-tela-quest-comecar.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Telas de uma frase conversam com o usuário e quebram a jornada em objetivos claros.',
+      noteEn:'One-line screens talk to the user and break the journey into clear goals.'},
+    {step:'Passo 4', stepEn:'Step 4', titlePt:'Escolha da publicação', titleEn:'Choosing the publication', src:'assets/astrea-tela-escolha-publicacao.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Uma decisão de cada vez: o usuário escolhe a publicação a tratar.',
+      noteEn:'One decision at a time: the user chooses which publication to treat.'},
+    {step:'Passo 5', stepEn:'Step 5', titlePt:'Edição do tratamento', titleEn:'Editing the treatment', src:'assets/astrea-tela-edicao-detalhamento.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Preenchimento guiado, com o texto da publicação sempre visível ao lado para dar contexto à decisão.',
+      noteEn:'Guided input, with the publication text always visible alongside to give context to the decision.'},
+    {step:'Passo 6', stepEn:'Step 6', titlePt:'Revisão dos dados', titleEn:'Reviewing the data', src:'assets/astrea-tela-resumo-confirmacao.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#1e88e5',
+      notePt:'Resumo antes de salvar: reduz erro e dá segurança para concluir a tarefa.',
+      noteEn:'Summary before saving: reduces error and gives confidence to finish the task.'},
+    {step:'Passo 7', stepEn:'Step 7', titlePt:'Saída de emergência', titleEn:'Emergency exit', src:'assets/astrea-tela-saida-emergencia.png', bg:'#fff', border:'rgba(18,24,31,0.08)', badgeBg:'#0b6b1f',
+      notePt:'O pop-up de "pular" oferece a saída de emergência e, ao mesmo tempo, reforça a proposta de valor e ativa o FOMO.',
+      noteEn:'The "skip" pop-up offers an emergency exit while reinforcing the value proposition and triggering FOMO.'},
+    {step:'Resultado', stepEn:'Result', titlePt:'Área de trabalho', titleEn:'Workspace', src:'assets/astrea-tela-area-trabalho.png', bg:'#f2fbf5', border:'rgba(11,107,31,0.28)', badgeBg:'#0b6b1f',
+      notePt:'O tratamento salvo vira tarefa e prazo na área de trabalho, nada passa despercebido.',
+      noteEn:'The saved treatment becomes a task and deadline on the workspace, nothing goes unnoticed.'},
+  ];
+
+  strings = {
+    pt: {
+      backToPortfolio: 'Voltar ao portfólio', navigationLabel: 'Navegação',
+      tagPrototype: 'UI · Protótipo hi-fi',
+      heroKicker: 'Atividade prática · Vaga de UX Designer Sênior, Growth',
+      heroTitle: 'Redesenho do fluxo de ativação',
+      heroSub: 'Do cadastro ao primeiro tratamento de publicação: um onboarding guiado para destravar o principal momento de valor do Astrea durante o trial.',
+      stat1: 'dos usuários que iniciam o trial chegam a tratar a primeira publicação hoje.',
+      stat2: 'passos no fluxo: jornada encurtada e reorganizada em torno do valor.',
+      metaCandidate: 'Candidato', metaRole: 'Vaga', metaRoleValue: 'UX Designer Sênior',
+      metaDeliverable: 'Entregável', metaDate: 'Data', metaDateValue: '22 de junho de 2026',
+      h01: 'Resumo executivo', tldrKicker: 'Para quem vai ler com pressa',
+      tldr1a: 'Hoje, menos de um terço dos usuários que iniciam o período gratuito chega a tratar sua primeira publicação, o principal',
+      tldr1b: 'do Astrea, quando uma informação jurídica vira uma ação concreta dentro do sistema.',
+      tldr2: 'A auditoria do fluxo atual apontou o gargalo central: o onboarding orienta o usuário apenas até a etapa anterior ao tratamento e então o deixa sozinho diante de uma tela densa, sem guia, sem possibilidade de voltar e sem deixar evidente o valor da ação.',
+      tldr3a: 'A oportunidade escolhida foi reorganizar a jornada em um ',
+      tldr3strong: 'fluxo guiado e gamificado de 7 passos',
+      tldr3b: ' (contra 10 atuais), que antecipa a percepção de valor logo após o cadastro, conduz o usuário passo a passo até salvar o primeiro tratamento e usa progresso e recompensa para sustentar a motivação. Resultado esperado: mover a métrica de ativação, a taxa de usuários em trial que realizam o primeiro tratamento.',
+      h02: 'Contexto e objetivo', h02sub: 'O primeiro tratamento é o momento que prova o valor',
+      p02: 'O Astrea é o software de gestão jurídica da Aurum, voltado a pequenos e médios escritórios de advocacia, com foco em produtividade e tranquilidade na rotina. Dentro da jornada do usuário, o primeiro tratamento de uma publicação é o momento mais crítico de geração de valor percebido durante o trial: é quando o usuário experimenta, na prática, a proposta do Astrea de transformar uma informação jurídica em uma ação estruturada. A baixa taxa de conclusão dessa etapa revela uma oportunidade clara de melhoria na descoberta de valor, na redução de atritos e na clareza dos próximos passos.',
+      feat1t: 'Controle de processos', feat1p: 'Centraliza informações dos tribunais em um só lugar.',
+      feat2t: 'Atividades e prazos', feat2p: 'Cada publicação vira tarefa, cada prazo entra na agenda.',
+      feat3t: 'Gestão financeira', feat3p: 'Acompanha honorários e o financeiro do escritório.',
+      h03: 'Como investiguei o problema', h03sub: 'Percorri a jornada como uma pessoa advogada real',
+      p03: 'Criei uma conta no período de teste e percorri toda a jornada, do cadastro ao módulo de publicações, registrando impressões, gravando a navegação e capturando cada etapa. Em um processo completo, esta fase incluiria a construção de personas, pesquisa qualitativa e quantitativa e testes de usabilidade com usuários qualificados.',
+      hypKicker: 'Hipóteses levantadas para validação',
+      hypNote: 'Carecem de validação por pesquisa e testes; podem alimentar uma matriz de impacto × esforço e um mapa de empatia para alinhar o time.',
+      auditTitle: 'Auditoria heurística do fluxo', auditSub: 'Baseada nas heurísticas de Nielsen e nas leis de Hick, Tesler e Jakob.',
+      thHeuristic: 'Heurística', thEval: 'Avaliação', thNote: 'Observação',
+      h04: 'Mapa da jornada atual', h04sub: 'Do início do teste ao primeiro tratamento',
+      p04: 'O mapa reconstrói a jornada percorrida no trial. A orientação ativa do produto se concentra no início (cadastro e configuração) e se dissolve justamente nas etapas finais (acessar uma publicação, abrir tratamentos e preencher os dados), onde o abandono é mais provável.',
+      fig1alt: 'Fluxo da jornada atual', fig1caption: 'Fig. 1: Mapa da jornada atual, reconstruído a partir da navegação no período de teste.',
+      zoomHint: 'Clique para ampliar', zoomIn: 'Ampliar', zoomOut: 'Reduzir',
+      h05: 'Métricas', h05sub: 'O que vamos medir e mover', mainMetricKicker: 'Métrica principal',
+      mainMetric: 'Taxa de usuários em trial que realizam o primeiro tratamento de publicação.',
+      secMetricsT: 'Métricas secundárias', secMetricsP: 'Tempo até o primeiro tratamento · cliques até concluir · abandono por etapa.',
+      valueMomentT: 'Momento de valor', valueMomentP: 'Publicação transformada em ação concreta: tarefa, prazo, evento, audiência ou histórico.',
+      audienceT: 'Público provável', audienceP: 'Pessoa advogada ou pequeno/médio escritório em trial, com baixa familiaridade inicial com o Astrea.',
+      riskT: 'Risco central', riskP: 'Ver o módulo como "mais uma tela complexa" antes de perceber economia de tempo e segurança.',
+      h06: 'Oportunidades de melhoria', h06sub: 'Três frentes de crescimento orientado ao produto',
+      opp1t: 'Descoberta de valor', opp1p: 'O usuário sabe que a funcionalidade existe, mas não entende por que ela importa para a sua rotina. Tornar o valor evidente já nos primeiros minutos, conectando a publicação à dor real de acompanhar prazos em vários tribunais.',
+      opp2t: 'Usabilidade na execução', opp2p: 'O fluxo funciona para quem já se habituou, mas tem fricção para novos usuários: passos demais, decisões pouco claras e falta de feedback. Reduzir o esforço necessário para concluir o primeiro tratamento.',
+      opp3t: 'Clareza dos próximos passos', opp3p: 'Após entrar no produto, o usuário não sabe qual é o passo mais valioso a seguir. Guiá-lo de forma ativa até o momento de descoberta de valor, com orientação contextual e senso de progresso.',
+      h07: 'Priorização', h07sub: 'Framework RICE para decidir o que mover primeiro',
+      p07: 'Para validar de forma assertiva e baseada em dados qual solução afeta mais a métrica de ativação, a priorização usaria o framework RICE, ponderando alcance, impacto, confiança e esforço de cada oportunidade.',
+      riceR: 'Quantos usuários alcança', riceI: 'Efeito na ativação', riceC: 'Confiança na estimativa', riceE: 'Esforço de desenvolvimento',
+      h08: 'Experimento proposto', h08sub: 'Um onboarding guiado, com raciocínio de gamificação',
+      p08: 'Prototipei um novo fluxo que reorganiza a jornada e a transforma em um guia passo a passo, reduzindo a carga de aprendizado e o número de decisões até o aha moment. Assim, a plataforma ganha mais controle sobre o rumo do usuário, podendo incentivá-lo ao longo do caminho e mitigar o abandono.',
+      exp1t: 'Guia até o sucesso', exp1p: 'Conduzir o usuário até concluir a tarefa, reduzindo a chance de desvio do caminho.',
+      exp2t: 'Valor antecipado', exp2p: 'Trazer a percepção de valor antes da execução, usando recompensa para motivar.',
+      exp3t: 'Jornada mais curta', exp3p: 'Simplificar e encurtar o caminho, de 10 para 7 passos essenciais.',
+      exp4t: 'Liberdade e prevenção', exp4p: 'Permitir voltar etapas e conhecer a jornada antes de usar tudo, reduzindo erros e dúvidas.',
+      rationaleTitle: 'Racional das decisões de design',
+      rationale1: 'Antes das telas finais, esbocei o fluxo em baixa fidelidade para validar a sequência de passos. A proposta de valor vem logo após o cadastro: além dos benefícios já citados, ela inicia o storytelling que representa o momento de descoberta de valor. Testes podem indicar se essa tela funciona melhor com vídeo ou imagem.',
+      rationale2: 'Substituí o progresso em etapas por uma barra de progresso, para aproveitar melhor o efeito Zeigarnik, e adicionei uma seta de retorno: no teste, recorrer à seta do navegador durante o cadastro não se mostrou intuitivo. O botão de pular, embora possa parecer contraintuitivo, dá ao usuário uma saída de emergência sempre disponível; combinado a um pop-up, reforça a proposta de valor (efeito do gradiente de objetivo) e ativa o FOMO.',
+      fig2alt: 'Esboço de baixa fidelidade', fig2caption: 'Fig. 2: Esboço de baixa fidelidade usado para validar a sequência de passos do novo fluxo.',
+      h09: 'Fluxo atual × proposto', h09sub: 'De 10 passos dispersos a 7 passos guiados',
+      currentFlowT: 'Fluxo atual · 10 passos', proposedFlowT: 'Fluxo proposto · 7 passos',
+      pf1: 'Faz o cadastro', pf2: 'Percebe valor', newBadge: 'NOVO', pf3: 'Busca processos', pf4: 'Escolhe o processo', pf5: 'Edita o tratamento', pf6: 'Revisa os dados', pf7: 'Salva',
+      flowNote: 'Removidos os passos que não colaboravam para concluir a tarefa, como convidar usuários e definir objetivo, e a entrega de valor foi trazida já para o começo do fluxo.',
+      psychTitle: 'Comportamento e psicologia considerados',
+      psych1t: 'Efeito Zeigarnik', psych1p: 'Uma trilha incompleta cria tensão saudável que estimula a conclusão do primeiro tratamento.',
+      psych2t: 'Objetivo gradiente', psych2p: 'Mostrar o quão perto se está da meta acelera a ação à medida que a conclusão se aproxima.',
+      psych3t: 'Aversão à perda', psych3p: 'Enquadrar o que se deixa de ganhar, como perder prazos espalhados em vários tribunais, aumenta a motivação.',
+      psych4t: 'Carga cognitiva · Lei de Hick', psych4p: 'Reduzir o número de decisões na primeira experiência diminui a paralisia e o abandono.',
+      jakobT: 'Lei de Jakob', jakobP: 'Usar padrões de interface já familiares evita que o usuário precise reaprender a interagir com o produto. Por isso, a alta fidelidade respeita a identidade visual do Astrea.',
+      h10: 'Protótipo de alta fidelidade', h10sub: 'O novo fluxo, tela a tela',
+      p10: 'As telas a seguir materializam o fluxo proposto, respeitando a identidade visual do Astrea para que a experiência pareça parte natural do produto. Telas curtas de uma frase só conversam com o usuário, quebrando a jornada em objetivos claros: as quests.',
+      nextTitle: 'Validar a hipótese e escalar a motivação', nextKicker: 'Próximos passos',
+      next1t: 'Priorizar via RICE', next1p: 'Pontuar cada oportunidade para decidir o que entra primeiro no roadmap.',
+      next2t: 'Testar com usuários', next2p: 'Usabilidade moderada e heatmaps para validar as hipóteses levantadas.',
+      next3t: 'A/B na tela de valor', next3p: 'Comparar vídeo × imagem na tela de entrega de valor.',
+      next4t: 'Sistema de badges', next4p: 'Recompensas por frequência, tratamentos e cumprimento de agenda, eventualmente com parceiros.',
+      footer: 'Astrea · Aurum · Handoff do fluxo de ativação · Junho de 2026',
+    },
+    en: {
+      backToPortfolio: 'Back to portfolio', navigationLabel: 'Navigation',
+      tagPrototype: 'UI · Hi-fi Prototype',
+      heroKicker: 'Take-home exercise · Senior UX Designer role, Growth',
+      heroTitle: 'Activation flow redesign',
+      heroSub: "From sign-up to the first publication treatment: a guided onboarding to unlock Astrea's core value moment during the trial.",
+      stat1: 'of users who start the trial actually treat their first publication today.',
+      stat2: 'steps in the flow: journey shortened and reorganized around value.',
+      metaCandidate: 'Candidate', metaRole: 'Role', metaRoleValue: 'Senior UX Designer',
+      metaDeliverable: 'Deliverable', metaDate: 'Date', metaDateValue: 'June 22, 2026',
+      h01: 'Executive summary', tldrKicker: 'For the time-pressed reader',
+      tldr1a: 'Today, fewer than a third of users who start the free trial go on to treat their first publication, the core',
+      tldr1b: "of Astrea, when a legal notice turns into a concrete action inside the system.",
+      tldr2: "An audit of the current flow pinpointed the core bottleneck: onboarding only guides the user up to the step before the treatment, then leaves them alone facing a dense screen, with no guide, no way back, and no clear sense of the action's value.",
+      tldr3a: 'The chosen opportunity was to reorganize the journey into a ',
+      tldr3strong: 'guided, gamified 7-step flow',
+      tldr3b: ' (down from 10), which surfaces value perception right after sign-up, walks the user step by step to saving the first treatment, and uses progress and reward to sustain motivation. Expected outcome: move the activation metric, the share of trial users who complete their first treatment.',
+      h02: 'Context and goal', h02sub: 'The first treatment is the moment that proves the value',
+      p02: "Astrea is Aurum's legal management software, built for small and mid-size law firms, focused on productivity and day-to-day peace of mind. Within the user journey, treating a publication for the first time is the most critical moment of perceived value during the trial: it's when the user experiences, in practice, Astrea's promise of turning a legal notice into a structured action. The low completion rate at this step reveals a clear opportunity to improve value discovery, reduce friction, and clarify next steps.",
+      feat1t: 'Case tracking', feat1p: 'Centralizes court information in one place.',
+      feat2t: 'Tasks and deadlines', feat2p: 'Every publication becomes a task, every deadline lands on the calendar.',
+      feat3t: 'Financial management', feat3p: "Tracks fees and the firm's finances.",
+      h03: 'How I investigated the problem', h03sub: 'I walked the journey as a real lawyer would',
+      p03: 'I created a trial account and walked the entire journey, from sign-up to the publications module, logging impressions, recording the navigation, and capturing every step. In a full process, this phase would include building personas, qualitative and quantitative research, and usability testing with qualified users.',
+      hypKicker: 'Hypotheses raised for validation',
+      hypNote: 'These need validation through research and testing; they can feed an impact × effort matrix and an empathy map to align the team.',
+      auditTitle: 'Heuristic audit of the flow', auditSub: "Based on Nielsen's heuristics and the laws of Hick, Tesler, and Jakob.",
+      thHeuristic: 'Heuristic', thEval: 'Evaluation', thNote: 'Note',
+      h04: 'Current journey map', h04sub: 'From trial start to the first treatment',
+      p04: 'The map reconstructs the journey walked during the trial. The product\'s active guidance is concentrated at the start (sign-up and setup) and dissolves right at the final steps (opening a publication, opening treatments, and filling in the data), where drop-off is most likely.',
+      fig1alt: 'Current journey flow', fig1caption: 'Fig. 1: Current journey map, reconstructed from navigation during the trial period.',
+      zoomHint: 'Click to zoom', zoomIn: 'Zoom in', zoomOut: 'Zoom out',
+      h05: 'Metrics', h05sub: 'What we will measure and move', mainMetricKicker: 'Primary metric',
+      mainMetric: 'Share of trial users who complete their first publication treatment.',
+      secMetricsT: 'Secondary metrics', secMetricsP: 'Time to first treatment · clicks to completion · drop-off by step.',
+      valueMomentT: 'Value moment', valueMomentP: 'Publication turned into a concrete action: task, deadline, event, hearing, or history entry.',
+      audienceT: 'Likely audience', audienceP: 'A lawyer or small/mid-size firm on trial, with low initial familiarity with Astrea.',
+      riskT: 'Core risk', riskP: 'Seeing the module as "just another complex screen" before noticing the time savings and safety it brings.',
+      h06: 'Improvement opportunities', h06sub: 'Three fronts of product-led growth',
+      opp1t: 'Value discovery', opp1p: "The user knows the feature exists but doesn't understand why it matters for their routine. Make the value obvious within the first minutes, connecting the publication to the real pain of tracking deadlines across multiple courts.",
+      opp2t: 'Usability of execution', opp2p: 'The flow works for people already used to it, but creates friction for new users: too many steps, unclear decisions, and lack of feedback. Reduce the effort needed to complete the first treatment.',
+      opp3t: 'Clarity of next steps', opp3p: "After entering the product, the user doesn't know what the most valuable next step is. Actively guide them to the value-discovery moment, with contextual guidance and a sense of progress.",
+      h07: 'Prioritization', h07sub: 'RICE framework to decide what to move first',
+      p07: 'To assertively and objectively validate which solution moves the activation metric most, prioritization would use the RICE framework, weighing reach, impact, confidence, and effort for each opportunity.',
+      riceR: 'How many users it reaches', riceI: 'Effect on activation', riceC: 'Confidence in the estimate', riceE: 'Development effort',
+      h08: 'Proposed experiment', h08sub: 'A guided onboarding, with gamification logic',
+      p08: 'I prototyped a new flow that reorganizes the journey and turns it into a step-by-step guide, reducing the learning load and the number of decisions until the aha moment. This way, the platform gains more control over the user\'s path, allowing it to encourage them along the way and reduce drop-off.',
+      exp1t: 'Guide to success', exp1p: 'Lead the user to complete the task, reducing the chance of drifting off the path.',
+      exp2t: 'Value up front', exp2p: 'Bring value perception before execution, using reward to motivate.',
+      exp3t: 'Shorter journey', exp3p: 'Simplify and shorten the path, from 10 down to 7 essential steps.',
+      exp4t: 'Freedom and prevention', exp4p: 'Allow going back a step and previewing the journey before committing, reducing errors and doubts.',
+      rationaleTitle: 'Rationale behind the design decisions',
+      rationale1: 'Before the final screens, I sketched the flow in low fidelity to validate the sequence of steps. The value proposition comes right after sign-up: besides the benefits already mentioned, it kicks off the storytelling that represents the value-discovery moment. Testing could show whether this screen works better with video or a static image.',
+      rationale2: "I replaced step-based progress with a progress bar, to better leverage the Zeigarnik effect, and added a back arrow: in testing, relying on the browser's back button during sign-up didn't prove intuitive. The skip button, though it may seem counterintuitive, gives the user an always-available emergency exit; paired with a pop-up, it reinforces the value proposition (goal-gradient effect) and triggers FOMO.",
+      fig2alt: 'Low-fidelity sketch', fig2caption: 'Fig. 2: Low-fidelity sketch used to validate the step sequence of the new flow.',
+      h09: 'Current flow × proposed flow', h09sub: 'From 10 scattered steps to 7 guided steps',
+      currentFlowT: 'Current flow · 10 steps', proposedFlowT: 'Proposed flow · 7 steps',
+      pf1: 'Signs up', pf2: 'Sees value', newBadge: 'NEW', pf3: 'Searches cases', pf4: 'Chooses the case', pf5: 'Edits the treatment', pf6: 'Reviews the data', pf7: 'Saves',
+      flowNote: 'Removed steps that did not help complete the task, like inviting users and setting a goal, and brought value delivery to the very start of the flow.',
+      psychTitle: 'Behavior and psychology considered',
+      psych1t: 'Zeigarnik effect', psych1p: 'An incomplete trail creates healthy tension that pushes toward completing the first treatment.',
+      psych2t: 'Goal gradient', psych2p: 'Showing how close the user is to the goal speeds up action as completion nears.',
+      psych3t: 'Loss aversion', psych3p: 'Framing what is lost by not acting, like missing deadlines scattered across courts, increases motivation.',
+      psych4t: "Cognitive load · Hick's Law", psych4p: 'Reducing the number of decisions in the first experience lowers paralysis and drop-off.',
+      jakobT: "Jakob's Law", jakobP: "Using already-familiar interface patterns keeps the user from having to relearn how to interact with the product. That's why the high-fidelity screens respect Astrea's visual identity.",
+      h10: 'High-fidelity prototype', h10sub: 'The new flow, screen by screen',
+      p10: "The screens below bring the proposed flow to life, respecting Astrea's visual identity so the experience feels like a natural part of the product. Short, one-line screens talk to the user and break the journey into clear goals: the quests.",
+      nextTitle: 'Validate the hypothesis and scale motivation', nextKicker: 'Next steps',
+      next1t: 'Prioritize via RICE', next1p: 'Score each opportunity to decide what enters the roadmap first.',
+      next2t: 'Test with users', next2p: 'Moderated usability testing and heatmaps to validate the hypotheses raised.',
+      next3t: 'A/B test the value screen', next3p: 'Compare video vs. static image on the value-delivery screen.',
+      next4t: 'Badge system', next4p: 'Rewards for frequency, treatments, and calendar compliance, eventually with partners.',
+      footer: 'Astrea · Aurum · Activation flow handoff · June 2026',
+    },
+  };
+
+  renderVals(){
+    const lang = this.state.lang;
+    const t = this.strings[lang];
+    const hyp = lang === 'pt' ? this.hypothesesPt : this.hypothesesEn;
+    const heur = lang === 'pt' ? this.heuristicsPt : this.heuristicsEn;
+    const activeStyle = { border:'none', cursor:'pointer', fontSize:'12.5px', fontWeight:700, padding:'6px 12px', borderRadius:'999px', background:'#12181f', color:'#fff' };
+    const inactiveStyle = { border:'none', cursor:'pointer', fontSize:'12.5px', fontWeight:700, padding:'6px 12px', borderRadius:'999px', background:'transparent', color:'#5b6472' };
+    const zoom = this.state.mapZoom;
+    const mapImgStyle = zoom
+      ? { width:'200%', maxWidth:'none', height:'auto', display:'block', borderRadius:'8px', cursor:'zoom-out', boxShadow:'0 20px 60px -20px rgba(0,0,0,0.6)' }
+      : { maxWidth:'100%', maxHeight:'100%', width:'auto', height:'auto', display:'block', borderRadius:'8px', cursor:'zoom-in', boxShadow:'0 20px 60px -20px rgba(0,0,0,0.6)' };
+    return {
+      t,
+      mapOpen: this.state.mapOpen,
+      openMap: this.openMap,
+      closeMap: this.closeMap,
+      toggleZoom: this.toggleZoom,
+      stopProp: this.stopProp,
+      mapImgStyle,
+      mapAlign: zoom ? 'flex-start' : 'center',
+      mapTouch: 'auto',
+      zoomLabel: zoom ? t.zoomOut : t.zoomIn,
+      setLangPt: () => this.setLang('pt'),
+      setLangEn: () => this.setLang('en'),
+      langBtnPtStyle: lang === 'pt' ? activeStyle : inactiveStyle,
+      langBtnEnStyle: lang === 'en' ? activeStyle : inactiveStyle,
+      hypotheses: hyp.map((text, i) => ({ n: 'H' + (i+1), text })),
+      heuristics: heur,
+      currentFlow: lang === 'pt' ? this.currentFlowPt : this.currentFlowEn,
+      screens: this.screensRaw.map(s => ({
+        step: lang === 'pt' ? s.step : s.stepEn,
+        title: lang === 'pt' ? s.titlePt : s.titleEn,
+        note: lang === 'pt' ? s.notePt : s.noteEn,
+        src: s.src, bg: s.bg, border: s.border, badgeBg: s.badgeBg,
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
